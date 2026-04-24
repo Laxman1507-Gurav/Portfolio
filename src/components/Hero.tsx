@@ -86,21 +86,21 @@ const Hero: React.FC = () => {
                     </motion.div>
                 </motion.div>
 
-                {/* Avatar (Right) */}
+                {/* Photo (Right) */}
                 <motion.div
                     className="md:w-1/2 flex justify-center md:justify-end"
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                    <motion.div
-                        className="w-64 h-64 md:w-[400px] md:h-[400px] rounded-full border border-border bg-secondary flex items-center justify-center text-8xl md:text-[12rem] shadow-sm relative"
-                    >
-                        👨‍💻
-                        {/* Decorative circles around avatar */}
-                        <div className="absolute -inset-4 border border-border rounded-full animate-[spin_20s_linear_infinite] opacity-50 border-t-transparent"></div>
-                        <div className="absolute -inset-8 border border-border rounded-full animate-[spin_30s_linear_infinite_reverse] opacity-30 border-l-transparent"></div>
-                    </motion.div>
+                    <div className="relative w-full max-w-[460px] h-[330px] md:h-[80vh] rounded-[1rem] overflow-hidden border border-border shadow-2xl bg-secondary">
+                        <img
+                            src="/sujal2.jpg"
+                            alt="Hero portrait"
+                            className="h-full w-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent" />
+                    </div>
                 </motion.div>
             </div>
         </section>

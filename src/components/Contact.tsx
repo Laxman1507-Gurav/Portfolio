@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiPhone, FiMapPin, FiSend, FiAlertCircle, FiCheckCircle } from 'react-icons/fi';
-import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 interface FormData {
   name: string;
@@ -151,6 +151,7 @@ const Contact: React.FC = () => {
     { icon: <FaLinkedin size={24} />, href: 'https://www.linkedin.com/in/laxman-gurav-4b9865404', label: 'LinkedIn', color: '#0A66C2', bg: '#E8F0FE' },
     { icon: <FaGithub size={24} />, href: 'https://github.com/Laxman1507-Gurav', label: 'GitHub', color: '#171515', bg: '#F5F5F5' },
     { icon: <FaInstagram size={24} />, href: 'https://www.instagram.com/sujal_g15?igsh=MWswM2x3Y3VweDZpeQ==', label: 'Instagram', color: '#E1306C', bg: '#FDE8EF' },
+    { icon: <FaWhatsapp size={24} />, href: 'https://wa.me/919322857455', label: 'WhatsApp', color: '#25D366', bg: '#E6FFED' },
   ];
 
   return (
@@ -302,31 +303,6 @@ const Contact: React.FC = () => {
                 <motion.div className="flex items-center gap-2 mt-2 text-red-500" initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }}>
                   <FiAlertCircle size={16} />
                   <span className="text-sm">{errors.phone}</span>
-                </motion.div>
-              )}
-            </div>
-
-            {/* Subject */}
-            <div>
-              <label htmlFor="subject" className="block text-sm font-semibold mb-2 text-textPrimary">
-                Subject
-              </label>
-              <motion.input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                className={`w-full bg-secondary border rounded-lg px-4 py-3 text-textPrimary placeholder-textSecondary transition-all focus:outline-none focus:ring-1 ${
-                  errors.subject ? 'border-red-500 focus:ring-red-500' : 'border-border focus:border-accent focus:ring-accent'
-                }`}
-                placeholder="Project Inquiry"
-                whileFocus={{ scale: 1.02 }}
-              />
-              {errors.subject && (
-                <motion.div className="flex items-center gap-2 mt-2 text-red-500" initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }}>
-                  <FiAlertCircle size={16} />
-                  <span className="text-sm">{errors.subject}</span>
                 </motion.div>
               )}
             </div>

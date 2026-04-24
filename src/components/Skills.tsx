@@ -118,7 +118,7 @@ const Skills: React.FC = () => {
       viewport={{ once: true }}
       className="mb-16"
     >
-      <h3 className={`text-2xl font-bold mb-8 uppercase tracking-widest text-center text-sm ${accentClass}`}>{title}</h3>
+      <h3 className={`text-2xl md:text-1xl font-bold mb-8 uppercase tracking-widest text-center ${accentClass}`}>{title}</h3>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
         {items.map((skill, i) => (
           <SkillCard key={skill.name} skill={skill} index={i + offset} />

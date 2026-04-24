@@ -92,7 +92,7 @@ const Services: React.FC = () => {
                 whileHover={{
                   y: -10,
                   scale: 1.02,
-                  boxShadow: '0 20px 40px rgba(59, 130, 246, 0.15)',
+                  boxShadow: '0 20px 40px rgba(69, 69, 69, 0.15)',
                 }}
               >
                 {/* Content */}

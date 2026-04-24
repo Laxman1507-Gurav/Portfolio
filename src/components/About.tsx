@@ -2,7 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { HiDownload } from 'react-icons/hi';
 
-const About: React.FC = () => {
+interface AboutProps {
+    onReviewCv: () => void;
+}
+
+const About: React.FC<AboutProps> = ({ onReviewCv }) => {
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -75,17 +79,30 @@ const About: React.FC = () => {
                             Currently, I am looking to pursue MSc in Computer Science and grow as a full-stack developer
                         </motion.p>
 
-                        {/* Download CV Button */}
-                        <motion.a
-                            href="#"
-                            className="btn-primary inline-flex items-center gap-2"
-                            whileHover={{ scale: 1.05, y: -2 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <HiDownload /> Download CV
-                        </motion.a>
+                        <div className="flex flex-col sm:flex-row items-center gap-4">
+                            <motion.a
+                                href="/MYResume.pdf"
+                                download="Laxman_Gurav_Resume.pdf"
+                                onClick={onReviewCv}
+                                className="btn-primary inline-flex items-center gap-2"
+                                whileHover={{ scale: 1.05, y: -2 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <HiDownload /> Download CV
+                            </motion.a>
+                            <motion.button
+                                type="button"
+                                onClick={onReviewCv}
+                                className="btn-secondary inline-flex items-center gap-2"
+                                whileHover={{ scale: 1.05, y: -2 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                Review My CV
+                            </motion.button>
+                        </div>
                     </motion.div>
                 </motion.div>
+
             </div>
         </section>
     );
