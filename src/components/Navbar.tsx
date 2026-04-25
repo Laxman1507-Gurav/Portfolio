@@ -1,11 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   const navItems = [
     { name: 'Home', href: '#home' },
@@ -117,24 +130,34 @@ const Navbar: React.FC = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <motion.a
-            href="#contact"
-            className="hidden md:block btn-primary text-sm"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Let's Talk
-          </motion.a>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-textSecondary hover:text-accent dark:hover:text-white"
+              aria-label="Toggle Theme"
+            >
+              {isDarkMode ? <FiSun size={20} /> : <FiMoon size={20} />}
+            </button>
 
-          {/* Mobile Menu Button */}
-          <motion.button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-textSecondary hover:text-accent transition-colors"
-            whileTap={{ scale: 0.95 }}
-          >
-            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-          </motion.button>
+            {/* CTA Button */}
+            <motion.a
+              href="#contact"
+              className="hidden md:block btn-primary text-sm"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Let's Talk
+            </motion.a>
+
+            {/* Mobile Menu Button */}
+            <motion.button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden text-textSecondary hover:text-accent transition-colors"
+              whileTap={{ scale: 0.95 }}
+            >
+              {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            </motion.button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
