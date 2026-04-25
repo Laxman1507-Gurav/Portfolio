@@ -322,7 +322,7 @@ const Chatbot: React.FC = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed bottom-24 right-6 z-50 w-[350px] sm:w-[390px] bg-white rounded-2xl shadow-2xl border border-border flex flex-col overflow-hidden"
+            className="fixed bottom-24 right-6 z-50 w-[350px] sm:w-[390px] bg-primary rounded-2xl shadow-2xl border border-border flex flex-col overflow-hidden"
             style={{ maxHeight: '680px' }}
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -343,7 +343,7 @@ const Chatbot: React.FC = () => {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50" style={{ maxHeight: '450px' }}>
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-secondary" style={{ maxHeight: '450px' }}>
               {messages.map(msg => (
                 <motion.div
                   key={msg.id}
@@ -360,7 +360,7 @@ const Chatbot: React.FC = () => {
                   <div
                     className={`max-w-[75%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${msg.sender === 'user'
                       ? 'bg-accent text-white rounded-br-sm'
-                      : 'bg-white text-gray-800 border border-gray-200 shadow-sm rounded-bl-sm'
+                      : 'bg-primary text-textPrimary border border-border shadow-sm rounded-bl-sm'
                       }`}
                   >
                     {formatText(msg.text)}
@@ -374,7 +374,7 @@ const Chatbot: React.FC = () => {
                   <div className="w-7 h-7 rounded-full bg-accent flex items-center justify-center text-white mr-2 mt-1 flex-shrink-0">
                     <FaRobot size={12} />
                   </div>
-                  <div className="bg-white border border-gray-200 shadow-sm px-4 py-3 rounded-2xl rounded-bl-sm flex gap-1.5 items-center">
+                  <div className="bg-primary border border-border shadow-sm px-4 py-3 rounded-2xl rounded-bl-sm flex gap-1.5 items-center">
                     {[0, 1, 2].map(i => (
                       <motion.span
                         key={i}
@@ -390,7 +390,7 @@ const Chatbot: React.FC = () => {
             </div>
 
             {/* Quick Questions */}
-            <div className="px-4 py-2 bg-white border-t border-gray-100 flex gap-2 overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
+            <div className="px-4 py-2 bg-primary border-t border-border flex gap-2 overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
               {quickQuestions.map(q => (
                 <button
                   key={q}
@@ -403,7 +403,7 @@ const Chatbot: React.FC = () => {
             </div>
 
             {/* Input */}
-            <div className="px-4 py-3 bg-white border-t border-gray-100 flex items-center gap-2">
+            <div className="px-4 py-3 bg-primary border-t border-border flex items-center gap-2">
               <input
                 ref={inputRef}
                 type="text"
@@ -411,7 +411,7 @@ const Chatbot: React.FC = () => {
                 onChange={e => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Ask me anything..."
-                className="flex-1 bg-gray-100 rounded-xl px-4 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-accent transition-all"
+                className="flex-1 bg-secondary rounded-xl px-4 py-2.5 text-sm text-textPrimary placeholder-textSecondary focus:outline-none focus:ring-1 focus:ring-accent transition-all"
               />
               <motion.button
                 onClick={sendMessage}

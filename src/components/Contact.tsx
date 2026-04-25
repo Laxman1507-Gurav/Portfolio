@@ -187,7 +187,7 @@ const Contact: React.FC = () => {
                 <motion.a
                   key={index}
                   href={info.href}
-                  className="flex items-start gap-4 p-4 rounded-lg bg-white border border-border hover:border-accent hover:shadow-lg transition-all group"
+                  className="flex items-start gap-4 p-4 rounded-lg bg-primary border border-border hover:border-accent hover:shadow-lg transition-all group"
                   whileHover={{ x: 10 }}
                 >
                   <div className="text-accent mt-1 group-hover:scale-110 transition-transform">
@@ -230,7 +230,7 @@ const Contact: React.FC = () => {
           <motion.form
             variants={itemVariants}
             onSubmit={handleSubmit}
-            className="space-y-6 bg-white rounded-xl p-8 border border-border shadow-lg"
+            className="space-y-6 bg-primary rounded-xl p-8 border border-border shadow-lg"
           >
             {/* Name */}
             <div>
@@ -365,7 +365,7 @@ const Contact: React.FC = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="w-full h-96 bg-white flex items-center justify-center">
+          <div className="w-full h-96 bg-primary flex items-center justify-center">
             <div className="text-center">
               <p className="text-4xl mb-4">📍</p>
               <p className="text-textPrimary font-semibold">Pune, Maharashtra, India</p>

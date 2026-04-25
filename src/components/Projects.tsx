@@ -47,7 +47,7 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
         onClick={onClose}
       >
         <motion.div
-          className="bg-white relative rounded-lg max-w-2xl w-full border border-accent/30 shadow-2xl"
+          className="bg-primary relative rounded-lg max-w-2xl w-full border border-accent/30 shadow-2xl"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
@@ -200,7 +200,7 @@ const Projects: React.FC = () => {
               >
                 <motion.div
                   onClick={() => setSelectedProject(project)}
-                  className="group relative bg-white rounded-none overflow-hidden border border-border cursor-pointer h-72 flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl"
+                  className="group relative bg-primary rounded-none overflow-hidden border border-border cursor-pointer h-72 flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl"
                   whileHover={{ y: -5 }}
                 >
                   {/* Minimal overlay */}
@@ -221,7 +221,7 @@ const Projects: React.FC = () => {
 
                   {/* Zoom indicator */}
                   <motion.div
-                    className="absolute inset-0 bg-white/80 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity backdrop-blur-sm"
+                    className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity backdrop-blur-sm"
                     initial={{ scale: 0.9 }}
                     whileHover={{ scale: 1 }}
                   >

@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled
-        ? 'bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-border dark:border-gray-800 shadow-lg'
+        ? 'bg-primary/90 backdrop-blur-md border-b border-border shadow-lg'
         : 'bg-transparent'
         }`}
       variants={containerVariants}
@@ -110,8 +110,8 @@ const Navbar: React.FC = () => {
                 key={item.name}
                 href={item.href}
                 className={`px-4 py-2 rounded-lg transition-all relative ${activeSection === item.href.slice(1)
-                  ? 'text-accent dark:text-white'
-                  : 'text-textSecondary dark:text-gray-400 hover:text-accent dark:hover:text-white'
+                  ? 'text-accent'
+                  : 'text-textSecondary hover:text-accent'
                   }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -119,7 +119,7 @@ const Navbar: React.FC = () => {
                 {item.name}
                 {activeSection === item.href.slice(1) && (
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent dark:bg-white"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent"
                     layoutId="navbar-indicator"
                     transition={{ duration: 0.3 }}
                   />
@@ -131,7 +131,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-textSecondary hover:text-accent dark:hover:text-white"
+              className="p-2 rounded-full hover:bg-secondary transition-colors text-textSecondary hover:text-accent"
               aria-label="Toggle Theme"
             >
               {isDarkMode ? <FiSun size={20} /> : <FiMoon size={20} />}
@@ -150,7 +150,7 @@ const Navbar: React.FC = () => {
             {/* Mobile Menu Button */}
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden text-textSecondary dark:text-gray-400 hover:text-accent dark:hover:text-white transition-colors"
+              className="md:hidden text-textSecondary hover:text-accent transition-colors"
               whileTap={{ scale: 0.95 }}
             >
               {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -161,7 +161,7 @@ const Navbar: React.FC = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <motion.div
-            className="md:hidden mt-4 pb-4 space-y-2 bg-white dark:bg-black dark:border dark:border-gray-800 rounded-xl shadow-lg p-4"
+            className="md:hidden mt-4 pb-4 space-y-2 bg-primary border border-border rounded-xl shadow-lg p-4"
             variants={menuVariants}
             initial="hidden"
             animate="visible"
@@ -173,8 +173,8 @@ const Navbar: React.FC = () => {
                 href={item.href}
                 onClick={() => setIsOpen(false)}
                 className={`block px-4 py-2 transition-all ${activeSection === item.href.slice(1)
-                  ? 'bg-gray-100 dark:bg-gray-800 text-accent dark:text-white font-semibold'
-                  : 'text-textSecondary dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-accent dark:hover:text-white'
+                  ? 'bg-secondary text-accent font-semibold'
+                  : 'text-textSecondary hover:bg-secondary hover:text-accent'
                   }`}
                 variants={itemVariants}
               >

@@ -58,7 +58,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index }) => (
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay: index * 0.06 }}
     whileHover={{ y: -6, scale: 1.04 }}
-    className="group bg-white rounded-2xl p-5 border border-border shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-center gap-3 cursor-default"
+    className="group bg-primary rounded-2xl p-5 border border-border shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-center gap-3 cursor-default"
   >
     {/* Icon circle */}
     <motion.div
@@ -80,7 +80,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index }) => (
     </p>
 
     {/* Progress bar */}
-    <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
+    <div className="w-full bg-secondary rounded-full h-1.5 overflow-hidden">
       <motion.div
         className="h-full rounded-full bg-accent"
         initial={{ width: 0 }}

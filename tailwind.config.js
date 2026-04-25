@@ -8,13 +8,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#ffffff",
-        secondary: "#f9fafb",
-        accent: "#000000",
-        accentSecond: "#333333",
-        textPrimary: "#111827",
-        textSecondary: "#6b7280",
-        border: "#e5e7eb",
+        primary: "rgb(var(--color-primary) / <alpha-value>)",
+        secondary: "rgb(var(--color-secondary) / <alpha-value>)",
+        accent: "rgb(var(--color-accent) / <alpha-value>)",
+        accentSecond: "rgb(var(--color-accent-second) / <alpha-value>)",
+        textPrimary: "rgb(var(--color-text-primary) / <alpha-value>)",
+        textSecondary: "rgb(var(--color-text-secondary) / <alpha-value>)",
+        border: "rgb(var(--color-border) / <alpha-value>)",
       },
       fontFamily: {
         sans: ['Poppins', 'system-ui', 'sans-serif'],

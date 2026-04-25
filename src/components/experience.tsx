@@ -76,7 +76,7 @@ const Experience: React.FC = () => {
               className="group"
             >
               <motion.div
-                className="relative h-full bg-white rounded-xl p-6 border border-border shadow-lg cursor-pointer overflow-hidden transition-all duration-300"
+                className="relative h-full bg-primary rounded-xl p-6 border border-border shadow-lg cursor-pointer overflow-hidden transition-all duration-300"
                 whileHover={{
                   y: -10,
                   scale: 1.02,

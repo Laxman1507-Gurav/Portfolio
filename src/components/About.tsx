@@ -53,7 +53,7 @@ const About: React.FC<AboutProps> = ({ onReviewCv }) => {
                     >
                         {/* Personal Details Card */}
                         <motion.div
-                            className="bg-white rounded-xl p-8 border border-border shadow-lg hover:shadow-xl transition-all"
+                            className="bg-primary rounded-xl p-8 border border-border shadow-lg hover:shadow-xl transition-all"
                             whileHover={{ y: -5 }}
                         >
                             <h3 className="text-2xl font-bold text-accent mb-6">Personal Details</h3>
@@ -68,7 +68,7 @@ const About: React.FC<AboutProps> = ({ onReviewCv }) => {
 
                         {/* About Me Paragraph */}
                         <motion.p
-                            className="text-textSecondary text-lg leading-relaxed bg-white rounded-xl p-8 border border-border shadow-lg hover:shadow-xl transition-all"
+                            className="text-textSecondary text-lg leading-relaxed bg-primary rounded-xl p-8 border border-border shadow-lg hover:shadow-xl transition-all"
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             transition={{ duration: 1, delay: 0.2 }}
