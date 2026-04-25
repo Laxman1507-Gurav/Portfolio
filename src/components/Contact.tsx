@@ -92,7 +92,7 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -203,27 +203,7 @@ const Contact: React.FC = () => {
               ))}
             </div>
 
-            {/* Social Links */}
-            <div>
-              <h4 className="text-lg font-semibold mb-4 text-textPrimary">Connect With Me</h4>
-              <div className="flex flex-wrap gap-4">
-                {socialLinks.map((link, index) => (
-                  <motion.a
-                    key={index}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-lg border border-border flex items-center justify-center transition-all shadow-sm"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    whileTap={{ scale: 0.95 }}
-                    title={link.label}
-                    style={{ color: link.color, backgroundColor: link.bg }}
-                  >
-                    {link.icon}
-                  </motion.a>
-                ))}
-              </div>
-            </div>
+
           </motion.div>
 
           {/* Contact Form */}
@@ -243,9 +223,8 @@ const Contact: React.FC = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className={`w-full bg-secondary border rounded-lg px-4 py-3 text-textPrimary placeholder-textSecondary transition-all focus:outline-none focus:ring-1 ${
-                  errors.name ? 'border-red-500 focus:ring-red-500' : 'border-border focus:border-accent focus:ring-accent'
-                }`}
+                className={`w-full bg-secondary border rounded-lg px-4 py-3 text-textPrimary placeholder-textSecondary transition-all focus:outline-none focus:ring-1 ${errors.name ? 'border-red-500 focus:ring-red-500' : 'border-border focus:border-accent focus:ring-accent'
+                  }`}
                 placeholder="Name"
                 whileFocus={{ scale: 1.02 }}
               />
@@ -268,9 +247,8 @@ const Contact: React.FC = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`w-full bg-secondary border rounded-lg px-4 py-3 text-textPrimary placeholder-textSecondary transition-all focus:outline-none focus:ring-1 ${
-                  errors.email ? 'border-red-500 focus:ring-red-500' : 'border-border focus:border-accent focus:ring-accent'
-                }`}
+                className={`w-full bg-secondary border rounded-lg px-4 py-3 text-textPrimary placeholder-textSecondary transition-all focus:outline-none focus:ring-1 ${errors.email ? 'border-red-500 focus:ring-red-500' : 'border-border focus:border-accent focus:ring-accent'
+                  }`}
                 placeholder="example@gmail.com"
                 whileFocus={{ scale: 1.02 }}
               />
@@ -293,9 +271,8 @@ const Contact: React.FC = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className={`w-full bg-secondary border rounded-lg px-4 py-3 text-textPrimary placeholder-textSecondary transition-all focus:outline-none focus:ring-1 ${
-                  errors.phone ? 'border-red-500 focus:ring-red-500' : 'border-border focus:border-accent focus:ring-accent'
-                }`}
+                className={`w-full bg-secondary border rounded-lg px-4 py-3 text-textPrimary placeholder-textSecondary transition-all focus:outline-none focus:ring-1 ${errors.phone ? 'border-red-500 focus:ring-red-500' : 'border-border focus:border-accent focus:ring-accent'
+                  }`}
                 placeholder="+91"
                 whileFocus={{ scale: 1.02 }}
               />
@@ -318,9 +295,8 @@ const Contact: React.FC = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows={5}
-                className={`w-full bg-secondary border rounded-lg px-4 py-3 text-textPrimary placeholder-textSecondary transition-all focus:outline-none focus:ring-1 resize-none ${
-                  errors.message ? 'border-red-500 focus:ring-red-500' : 'border-border focus:border-accent focus:ring-accent'
-                }`}
+                className={`w-full bg-secondary border rounded-lg px-4 py-3 text-textPrimary placeholder-textSecondary transition-all focus:outline-none focus:ring-1 resize-none ${errors.message ? 'border-red-500 focus:ring-red-500' : 'border-border focus:border-accent focus:ring-accent'
+                  }`}
                 placeholder="Send me a message..."
                 whileFocus={{ scale: 1.02 }}
               />

@@ -7,6 +7,14 @@ const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const socialLinks = [
+    { icon: <FaLinkedin size={20} />, href: 'https://www.linkedin.com/in/laxman-gurav-4b9865404', label: 'LinkedIn', color: '#0A66C2', bg: '#E8F0FE' },
+    { icon: <FaGithub size={20} />, href: 'https://github.com/Laxman1507-Gurav', label: 'GitHub', color: '#171515', bg: '#F5F5F5' },
+    { icon: <FaInstagram size={20} />, href: 'https://www.instagram.com/sujal_g15?igsh=MWswM2x3Y3VweDZpeQ==', label: 'Instagram', color: '#E1306C', bg: '#FDE8EF' },
+    { icon: <FaWhatsapp size={20} />, href: 'https://wa.me/919322857455', label: 'WhatsApp', color: '#25D366', bg: '#E6FFED' },
+  ];
+
   const footerLinks = [
     { 
       title: 'Navigation', 
@@ -88,6 +96,27 @@ const Footer: React.FC = () => {
             </motion.div>
           ))}
 
+          {/* Social Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4 text-textPrimary">Connect With Me</h4>
+            <div className="flex gap-4">
+              {socialLinks.map((link, index) => (
+                <motion.a
+                  key={index}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-lg border border-border flex items-center justify-center transition-all shadow-sm"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  whileTap={{ scale: 0.95 }}
+                  title={link.label}
+                  style={{ color: link.color, backgroundColor: link.bg }}
+                >
+                  {link.icon}
+                </motion.a>
+              ))}
+            </div>
+          </div>
         </motion.div>
 
         {/* Divider */}
