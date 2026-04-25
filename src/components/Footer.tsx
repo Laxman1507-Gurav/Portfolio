@@ -9,10 +9,6 @@ const Footer: React.FC = () => {
   };
 
   const socialLinks = [
-    { icon: <FaLinkedin size={20} />, href: 'https://www.linkedin.com/in/laxman-gurav-4b9865404', label: 'LinkedIn', color: '#0A66C2', bg: '#E8F0FE' },
-    { icon: <FaGithub size={20} />, href: 'https://github.com/Laxman1507-Gurav', label: 'GitHub', color: '#171515', bg: '#F5F5F5' },
-    { icon: <FaInstagram size={20} />, href: 'https://www.instagram.com/sujal_g15?igsh=MWswM2x3Y3VweDZpeQ==', label: 'Instagram', color: '#E1306C', bg: '#FDE8EF' },
-    { icon: <FaWhatsapp size={20} />, href: 'https://wa.me/919322857455', label: 'WhatsApp', color: '#25D366', bg: '#E6FFED' },
   ];
 
   const footerLinks = [
