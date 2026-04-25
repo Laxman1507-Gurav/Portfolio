@@ -62,7 +62,7 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
           </button>
 
           {/* Content */}
-          <div className="p-8">
+          <div className="p-5 sm:p-8">
             {/* Icon / Image */}
             {project.image.startsWith('http') || project.image.startsWith('/') || project.image.startsWith('.') || project.image.startsWith('data:') ? (
               <img src={project.image} alt={project.title} className="w-full h-auto max-h-64 object-cover rounded-lg mb-4" />

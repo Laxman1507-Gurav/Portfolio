@@ -84,11 +84,10 @@ const Navbar: React.FC = () => {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/90 backdrop-blur-md border-b border-border shadow-lg'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled
+        ? 'bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-border dark:border-gray-800 shadow-lg'
+        : 'bg-transparent'
+        }`}
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -98,7 +97,7 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <motion.a
             href="#home"
-            className="text-1xl font-bold font-heading uppercase tracking-widest bg-gradient-to-r from-accent to-accentSecond bg-clip-text text-transparent"
+            className="text-1xl font-bold font-heading uppercase tracking-widest bg-gradient-to-r from-accent to-accentSecond dark:from-white dark:to-gray-300 bg-clip-text text-transparent"
             whileHover={{ scale: 1.05 }}
           >
             Laxman Gurav
@@ -110,18 +109,17 @@ const Navbar: React.FC = () => {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className={`px-4 py-2 rounded-lg transition-all relative ${
-                  activeSection === item.href.slice(1)
-                    ? 'text-accent'
-                    : 'text-textSecondary hover:text-accent'
-                }`}
+                className={`px-4 py-2 rounded-lg transition-all relative ${activeSection === item.href.slice(1)
+                  ? 'text-accent dark:text-white'
+                  : 'text-textSecondary dark:text-gray-400 hover:text-accent dark:hover:text-white'
+                  }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {item.name}
                 {activeSection === item.href.slice(1) && (
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent dark:bg-white"
                     layoutId="navbar-indicator"
                     transition={{ duration: 0.3 }}
                   />
@@ -152,7 +150,7 @@ const Navbar: React.FC = () => {
             {/* Mobile Menu Button */}
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden text-textSecondary hover:text-accent transition-colors"
+              className="md:hidden text-textSecondary dark:text-gray-400 hover:text-accent dark:hover:text-white transition-colors"
               whileTap={{ scale: 0.95 }}
             >
               {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -163,7 +161,7 @@ const Navbar: React.FC = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <motion.div
-            className="md:hidden mt-4 pb-4 space-y-2 bg-white rounded-xl shadow-lg p-4"
+            className="md:hidden mt-4 pb-4 space-y-2 bg-white dark:bg-black dark:border dark:border-gray-800 rounded-xl shadow-lg p-4"
             variants={menuVariants}
             initial="hidden"
             animate="visible"
@@ -174,11 +172,10 @@ const Navbar: React.FC = () => {
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className={`block px-4 py-2 transition-all ${
-                  activeSection === item.href.slice(1)
-                    ? 'bg-gray-100 text-accent font-semibold'
-                    : 'text-textSecondary hover:bg-gray-50 hover:text-accent'
-                }`}
+                className={`block px-4 py-2 transition-all ${activeSection === item.href.slice(1)
+                  ? 'bg-gray-100 dark:bg-gray-800 text-accent dark:text-white font-semibold'
+                  : 'text-textSecondary dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-accent dark:hover:text-white'
+                  }`}
                 variants={itemVariants}
               >
                 {item.name}

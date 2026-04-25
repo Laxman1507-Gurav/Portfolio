@@ -197,7 +197,7 @@ const Contact: React.FC = () => {
                     <h4 className="font-semibold text-textPrimary group-hover:text-accent transition-colors">
                       {info.title}
                     </h4>
-                    <p className="text-textSecondary text-sm">{info.content}</p>
+                    <p className="text-textSecondary text-sm break-all">{info.content}</p>
                   </div>
                 </motion.a>
               ))}
@@ -206,7 +206,7 @@ const Contact: React.FC = () => {
             {/* Social Links */}
             <div>
               <h4 className="text-lg font-semibold mb-4 text-textPrimary">Connect With Me</h4>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4">
                 {socialLinks.map((link, index) => (
                   <motion.a
                     key={index}

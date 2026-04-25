@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
                 >
                     <motion.h1
                         variants={itemVariants}
-                        className="text-5xl md:text-7xl font-bold mb-4 font-heading text-accent uppercase tracking-wide leading-tight"
+                        className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 font-heading text-accent uppercase tracking-wide leading-tight"
                     >
                         Hi, I'm<br />Laxman Gurav
                     </motion.h1>
