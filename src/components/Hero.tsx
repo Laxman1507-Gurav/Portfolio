@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
                         variants={itemVariants}
                         className="text-5xl md:text-7xl font-bold mb-4 font-heading text-accent uppercase tracking-wide leading-tight"
                     >
-                        Hi I'm<br />Laxman Gurav
+                        Hi, I'm<br />Laxman Gurav
                     </motion.h1>
 
                     <motion.p
