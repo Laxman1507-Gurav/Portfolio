@@ -7,10 +7,6 @@ const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  const socialLinks = [
-  ];
-
   const footerLinks = [
     { 
       title: 'Navigation', 
