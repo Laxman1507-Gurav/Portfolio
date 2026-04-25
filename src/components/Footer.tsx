@@ -96,27 +96,6 @@ const Footer: React.FC = () => {
             </motion.div>
           ))}
 
-          {/* Social Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4 text-textPrimary">Connect With Me</h4>
-            <div className="flex gap-4">
-              {socialLinks.map((link, index) => (
-                <motion.a
-                  key={index}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-lg border border-border flex items-center justify-center transition-all shadow-sm"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                  title={link.label}
-                  style={{ color: link.color, backgroundColor: link.bg }}
-                >
-                  {link.icon}
-                </motion.a>
-              ))}
-            </div>
-          </div>
         </motion.div>
 
         {/* Divider */}
