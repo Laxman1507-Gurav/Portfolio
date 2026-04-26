@@ -47,7 +47,7 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
         onClick={onClose}
       >
         <motion.div
-          className="bg-primary relative rounded-lg max-w-2xl w-full border border-accent/30 shadow-2xl"
+          className="bg-primary relative rounded-2xl max-w-2xl w-full border border-border shadow-2xl max-h-[90vh] flex flex-col overflow-hidden"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
@@ -62,19 +62,19 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
           </button>
 
           {/* Content */}
-          <div className="p-5 sm:p-8">
+          <div className="p-5 sm:p-8 overflow-y-auto custom-scrollbar">
             {/* Icon / Image */}
             {project.image.startsWith('http') || project.image.startsWith('/') || project.image.startsWith('.') || project.image.startsWith('data:') ? (
               <img src={project.image} alt={project.title} className="w-full h-auto max-h-64 object-cover rounded-lg mb-4" />
             ) : (
-              <div className="text-6xl mb-4 text-center text-gray-800">{project.image}</div>
+              <div className="text-6xl mb-4 text-center text-textSecondary">{project.image}</div>
             )}
 
             {/* Title */}
-            <h3 className="text-3xl font-bold mb-3 text-gray-900">{project.title}</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-textPrimary">{project.title}</h3>
 
             {/* Description */}
-            <p className="text-gray-700 mb-6">{project.description}</p>
+            <p className="text-textSecondary text-sm sm:text-base mb-6 leading-relaxed">{project.description}</p>
 
             {/* Technologies */}
             <div className="mb-6">
@@ -89,14 +89,14 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
             </div>
 
             {/* Links */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <motion.a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary inline-flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="btn-primary inline-flex items-center justify-center gap-2 text-sm sm:text-base py-2.5 sm:py-3"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <FiExternalLink /> Visit Project
               </motion.a>
@@ -104,9 +104,9 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary inline-flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="btn-secondary inline-flex items-center justify-center gap-2 text-sm sm:text-base py-2.5 sm:py-3"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <FiGithub /> View Code
               </motion.a>

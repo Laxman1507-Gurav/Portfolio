@@ -169,8 +169,8 @@ const knowledge: { keywords: string[]; response: string }[] = [
     response: "You can reach Laxman via the contact section or LinkedIn. Feel free to connect with Laxman through email or LinkedIn."
   },
   {
-    keywords: ["resume", "download resume", "show resume", "show Laxman's resume", "download Laxman's resume"],
-    response: "Yes! You can download Laxman's resume from the portfolio. Check the Experience section to download it."
+    keywords: ['resume', 'cv', 'download resume', 'download cv', 'show resume', 'show cv'],
+    response: "📄 You can download Laxman's resume here: [Download Resume](/MYResume.pdf). You can also review it in the Experience section of the portfolio.",
   },
   {
     keywords: ['thank', 'thanks', 'appreciate', 'great', 'awesome', 'helpful'],
@@ -260,21 +260,57 @@ const Chatbot: React.FC = () => {
   };
 
   const formatText = (text: string) => {
-    const urlSplit = /(https?:\/\/[^\s]+)/g;
-    const urlTest = /^https?:\/\/[^\s]+$/;
+    // Regex for Markdown links [text](url)
+    const mdLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+    // Regex for URLs
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+
     return text.split('\n').map((line, i, arr) => {
-      const parts = line.split(urlSplit);
+      // First handle markdown links
+      let lastIndex = 0;
+      const elements = [];
+      let match;
+
+      while ((match = mdLinkRegex.exec(line)) !== null) {
+        // Push text before match
+        if (match.index > lastIndex) {
+          elements.push(line.substring(lastIndex, match.index));
+        }
+        
+        const linkText = match[1];
+        const linkUrl = match[2];
+
+        elements.push(
+          <a
+            key={`${i}-${match.index}`}
+            href={linkUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            download={linkUrl.endsWith('.pdf')}
+            className="underline font-semibold text-accent dark:text-white hover:opacity-80 transition-opacity break-all"
+          >
+            {linkText}
+          </a>
+        );
+        lastIndex = mdLinkRegex.lastIndex;
+      }
+
+      // Handle remaining text and plain URLs
+      const remainingText = line.substring(lastIndex);
+      const parts = remainingText.split(urlRegex);
+
       return (
         <span key={i}>
+          {elements}
           {parts.map((part, j) => {
-            if (urlTest.test(part)) {
+            if (urlRegex.test(part)) {
               return (
                 <a
                   key={j}
                   href={part}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline font-semibold text-accent hover:text-accentSecond break-all transition-colors"
+                  className="underline font-semibold text-accent dark:text-white hover:opacity-80 transition-opacity break-all"
                 >
                   {part}
                 </a>
@@ -297,7 +333,7 @@ const Chatbot: React.FC = () => {
     <>
       {/* Floating Button */}
       <motion.button
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-accent text-primary flex items-center justify-center shadow-2xl border border-border"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-accent text-primary dark:bg-white dark:text-black flex items-center justify-center shadow-2xl border border-border"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         animate={{ boxShadow: ['0 0 0 0 rgba(var(--color-accent) / 0.2)', '0 0 0 14px rgba(var(--color-accent) / 0)', '0 0 0 0 rgba(var(--color-accent) / 0)'] }}
@@ -330,14 +366,14 @@ const Chatbot: React.FC = () => {
             transition={{ duration: 0.3, ease: 'easeOut' }}
           >
             {/* Header */}
-            <div className="bg-accent px-4 py-3 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+            <div className="bg-accent dark:bg-white px-4 py-3 flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full bg-primary/20 dark:bg-black/10 flex items-center justify-center text-primary dark:text-black">
                 <FaRobot size={18} />
               </div>
               <div>
-                <p className="text-primary font-bold text-sm">Laxman's AI Assistant</p>
-                <p className="text-primary/70 text-xs flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-green-300 inline-block"></span> Online & Ready
+                <p className="text-primary dark:text-black font-bold text-sm">Laxman's AI Assistant</p>
+                <p className="text-primary/70 dark:text-black/70 text-xs flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full bg-green-500 inline-block"></span> Online & Ready
                 </p>
               </div>
             </div>
@@ -353,7 +389,7 @@ const Chatbot: React.FC = () => {
                   transition={{ duration: 0.3 }}
                 >
                   {msg.sender === 'bot' && (
-                    <div className="w-7 h-7 rounded-full bg-accent flex items-center justify-center text-primary mr-2 mt-1 flex-shrink-0">
+                    <div className="w-7 h-7 rounded-full bg-accent dark:bg-white flex items-center justify-center text-primary dark:text-black mr-2 mt-1 flex-shrink-0">
                       <FaRobot size={12} />
                     </div>
                   )}
@@ -371,7 +407,7 @@ const Chatbot: React.FC = () => {
               {/* Typing indicator */}
               {isTyping && (
                 <motion.div className="flex justify-start" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                  <div className="w-7 h-7 rounded-full bg-accent flex items-center justify-center text-primary mr-2 mt-1 flex-shrink-0">
+                  <div className="w-7 h-7 rounded-full bg-accent dark:bg-white flex items-center justify-center text-primary dark:text-black mr-2 mt-1 flex-shrink-0">
                     <FaRobot size={12} />
                   </div>
                   <div className="bg-primary border border-border shadow-sm px-4 py-3 rounded-2xl rounded-bl-sm flex gap-1.5 items-center">
