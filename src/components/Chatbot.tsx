@@ -297,10 +297,10 @@ const Chatbot: React.FC = () => {
     <>
       {/* Floating Button */}
       <motion.button
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-accent text-white flex items-center justify-center shadow-2xl border border-border"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-accent text-primary flex items-center justify-center shadow-2xl border border-border"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        animate={{ boxShadow: ['0 0 0 0 rgba(0,0,0,0.2)', '0 0 0 14px rgba(0,0,0,0)', '0 0 0 0 rgba(0,0,0,0)'] }}
+        animate={{ boxShadow: ['0 0 0 0 rgba(var(--color-accent) / 0.2)', '0 0 0 14px rgba(var(--color-accent) / 0)', '0 0 0 0 rgba(var(--color-accent) / 0)'] }}
         transition={{ duration: 2, repeat: Infinity }}
         onClick={() => setIsOpen(prev => !prev)}
         aria-label="Open chat"
@@ -331,12 +331,12 @@ const Chatbot: React.FC = () => {
           >
             {/* Header */}
             <div className="bg-accent px-4 py-3 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-white">
+              <div className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary">
                 <FaRobot size={18} />
               </div>
               <div>
-                <p className="text-white font-bold text-sm">Laxman's AI Assistant</p>
-                <p className="text-white/70 text-xs flex items-center gap-1">
+                <p className="text-primary font-bold text-sm">Laxman's AI Assistant</p>
+                <p className="text-primary/70 text-xs flex items-center gap-1">
                   <span className="w-2 h-2 rounded-full bg-green-300 inline-block"></span> Online & Ready
                 </p>
               </div>
@@ -353,13 +353,13 @@ const Chatbot: React.FC = () => {
                   transition={{ duration: 0.3 }}
                 >
                   {msg.sender === 'bot' && (
-                    <div className="w-7 h-7 rounded-full bg-accent flex items-center justify-center text-white mr-2 mt-1 flex-shrink-0">
+                    <div className="w-7 h-7 rounded-full bg-accent flex items-center justify-center text-primary mr-2 mt-1 flex-shrink-0">
                       <FaRobot size={12} />
                     </div>
                   )}
                   <div
                     className={`max-w-[75%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${msg.sender === 'user'
-                      ? 'bg-accent text-white rounded-br-sm'
+                      ? 'bg-accent text-primary rounded-br-sm'
                       : 'bg-primary text-textPrimary border border-border shadow-sm rounded-bl-sm'
                       }`}
                   >
@@ -371,7 +371,7 @@ const Chatbot: React.FC = () => {
               {/* Typing indicator */}
               {isTyping && (
                 <motion.div className="flex justify-start" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                  <div className="w-7 h-7 rounded-full bg-accent flex items-center justify-center text-white mr-2 mt-1 flex-shrink-0">
+                  <div className="w-7 h-7 rounded-full bg-accent flex items-center justify-center text-primary mr-2 mt-1 flex-shrink-0">
                     <FaRobot size={12} />
                   </div>
                   <div className="bg-primary border border-border shadow-sm px-4 py-3 rounded-2xl rounded-bl-sm flex gap-1.5 items-center">
@@ -395,7 +395,7 @@ const Chatbot: React.FC = () => {
                 <button
                   key={q}
                   onClick={() => sendQuickQuestion(q)}
-                  className="flex-shrink-0 text-xs px-3 py-1.5 rounded-full border border-border text-textSecondary hover:bg-accent hover:text-white transition-all whitespace-nowrap"
+                  className="flex-shrink-0 text-xs px-3 py-1.5 rounded-full border border-border text-textSecondary hover:bg-accent hover:text-primary transition-all whitespace-nowrap"
                 >
                   {q}
                 </button>
@@ -415,7 +415,7 @@ const Chatbot: React.FC = () => {
               />
               <motion.button
                 onClick={sendMessage}
-                className="w-10 h-10 rounded-xl bg-accent text-white flex items-center justify-center flex-shrink-0 disabled:opacity-50"
+                className="w-10 h-10 rounded-xl bg-accent text-primary flex items-center justify-center flex-shrink-0 disabled:opacity-50"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.9 }}
                 disabled={!input.trim()}

@@ -89,12 +89,12 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
             </div>
 
             {/* Links */}
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <motion.a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary inline-flex items-center gap-2"
+                className="btn-primary inline-flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -104,12 +104,23 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary inline-flex items-center gap-2"
+                className="btn-secondary inline-flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <FiGithub /> View Code
               </motion.a>
+            </div>
+
+            {/* Back Button */}
+            <div className="mt-10 pt-6 border-t border-border flex justify-center">
+              <button
+                onClick={onClose}
+                className="group flex items-center gap-2 px-6 py-2.5 bg-secondary text-textPrimary hover:bg-accent hover:text-primary transition-all rounded-full border border-border text-sm font-semibold"
+              >
+                <FiX className="group-hover:rotate-90 transition-transform" />
+                <span>Close</span>
+              </button>
             </div>
           </div>
         </motion.div>
