@@ -202,8 +202,27 @@ const Contact: React.FC = () => {
                 </motion.a>
               ))}
             </div>
-
-
+            {/* Social Links */}
+            <div className="pt-6 border-t border-border">
+              <h4 className="text-textPrimary font-semibold mb-4">Connect with me</h4>
+              <div className="flex flex-wrap gap-4">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full flex items-center justify-center transition-all shadow-md hover:shadow-lg"
+                    style={{ backgroundColor: social.bg, color: social.color }}
+                    whileHover={{ y: -5, scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    aria-label={social.label}
+                  >
+                    {social.icon}
+                  </motion.a>
+                ))}
+              </div>
+            </div>
           </motion.div>
 
           {/* Contact Form */}
