@@ -23,7 +23,19 @@ const projects: Project[] = [
     technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
     link: 'https://github.com/Laxman1507-Gurav/CarePlus',
     github: 'https://github.com/Laxman1507-Gurav/CarePlus',
-  }
+  },
+  {
+
+    id: 2,
+    title: 'PetCure',
+    category: 'web-app',
+    image: '/Paws.jpg',
+    description: 'PetCure is a MERN stack-based animal healthcare and rescue platform designed to simplify pet care and improve accessibility to veterinary services. The application allows users to book appointments, find nearby veterinary clinics using map integration, upload and read blogs, and manage their pet care journey efficiently. This project helped me strengthen my skills in full-stack development, authentication using JWT, API integration, and building real-world scalable applications.',
+    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Leaflet', 'OpenStreetMap'],
+    link: 'https://github.com/Laxman1507-Gurav/PetCure',
+    github: 'https://github.com/Laxman1507-Gurav/PetCure',
+
+  },
 ];
 
 const categories: { id: 'all' | 'web-app' | 'cloud' | 'big-data' | 'testing'; label: string }[] = [
