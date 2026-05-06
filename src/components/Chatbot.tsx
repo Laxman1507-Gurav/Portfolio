@@ -333,7 +333,7 @@ const Chatbot: React.FC = () => {
     <>
       {/* Floating Button */}
       <motion.button
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-accent text-primary dark:bg-white dark:text-black flex items-center justify-center shadow-2xl border border-border"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-14 h-14 rounded-full bg-accent text-primary dark:bg-white dark:text-black flex items-center justify-center shadow-2xl border border-border"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         animate={{ boxShadow: ['0 0 0 0 rgba(var(--color-accent) / 0.2)', '0 0 0 14px rgba(var(--color-accent) / 0)', '0 0 0 0 rgba(var(--color-accent) / 0)'] }}
@@ -358,8 +358,8 @@ const Chatbot: React.FC = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed bottom-24 right-6 z-50 w-[350px] sm:w-[390px] bg-primary rounded-2xl shadow-2xl border border-border flex flex-col overflow-hidden"
-            style={{ maxHeight: '680px' }}
+            className="fixed bottom-20 right-4 left-4 sm:left-auto sm:right-6 sm:bottom-24 z-50 w-auto sm:w-[400px] bg-primary rounded-2xl shadow-2xl border border-border flex flex-col overflow-hidden"
+            style={{ maxHeight: 'min(85vh, 650px)' }}
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.9 }}
@@ -379,7 +379,7 @@ const Chatbot: React.FC = () => {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-secondary" style={{ maxHeight: '450px' }}>
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-secondary">
               {messages.map(msg => (
                 <motion.div
                   key={msg.id}
