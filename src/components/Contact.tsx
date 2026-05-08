@@ -1,8 +1,21 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiMail, FiPhone, FiMapPin, FiSend, FiAlertCircle, FiCheckCircle, FiLoader } from 'react-icons/fi';
+import emailjs from '@emailjs/browser';
+import toast, { Toaster } from 'react-hot-toast';
+import { FiMail, FiPhone, FiMapPin, FiSend, FiAlertCircle, FiLoader } from 'react-icons/fi';
 import { FaLinkedin, FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa';
-import toast from 'react-hot-toast';
+
+// ─── EmailJS Configuration ─────────────────────────────────────────────────
+// Replace these three values after setting up your EmailJS account:
+//   1. Go to https://www.emailjs.com/ → Sign Up (free)
+//   2. Add a Gmail service → note the Service ID
+//   3. Create an email template → note the Template ID
+//   4. Go to Account → API Keys → copy the Public Key
+const EMAILJS_SERVICE_ID = 'service_07cbxxy';   // e.g. 'service_abc123'
+const EMAILJS_TEMPLATE_ID = 'template_bom0rnh';  // e.g. 'template_xyz789'
+const EMAILJS_PUBLIC_KEY = 'WTDCzxqsChbHQ1MOp';   // e.g. 'abcDEF123456'
+// ───────────────────────────────────────────────────────────────────────────
+
 interface FormData {
   name: string;
   email: string;
@@ -28,33 +41,24 @@ const Contact: React.FC = () => {
     message: '',
   });
   const [errors, setErrors] = useState<FormErrors>({});
-  const [submitted, setSubmitted] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [isSending, setIsSending] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Email validation function
+  // Email validation
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
-  // Phone validation function (Indian phone number format)
+  // Phone validation (Indian format)
   const validatePhone = (phone: string): boolean => {
-    if (!phone.trim()) return true; // phone is optional
-    const digits = phone.replace(/\D/g, '');
-    // Accept 10-digit number, or 12-digit with 91 country code
-    const num = digits.length === 12 && digits.startsWith('91') ? digits.slice(2) : digits;
     const phoneRegex = /^[6-9]\d{9}$/;
-    return phoneRegex.test(num);
+    return phoneRegex.test(phone.replace(/\D/g, ''));
   };
 
-  // Validate form
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
+    if (!formData.name.trim()) newErrors.name = 'Name is required';
 
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
@@ -62,17 +66,14 @@ const Contact: React.FC = () => {
       newErrors.email = 'Please enter a valid email address';
     }
 
-    if (formData.phone.trim() && !validatePhone(formData.phone)) {
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    } else if (!validatePhone(formData.phone)) {
       newErrors.phone = 'Please enter a valid 10-digit Indian phone number';
     }
 
-    if (!formData.subject.trim()) {
-      newErrors.subject = 'Subject is required';
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    }
+    if (!formData.subject.trim()) newErrors.subject = 'Subject is required';
+    if (!formData.message.trim()) newErrors.message = 'Message is required';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -80,63 +81,62 @@ const Contact: React.FC = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
-    // Clear error for this field when user starts typing
+    setFormData(prev => ({ ...prev, [name]: value }));
     if (errors[name as keyof FormErrors]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: undefined,
-      }));
+      setErrors(prev => ({ ...prev, [name]: undefined }));
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validateForm()) return;
 
-    if (!validateForm()) {
-      return;
-    }
-
-    setIsSending(true);
+    setIsLoading(true);
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/guravsujal371@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
           phone: formData.phone,
           subject: formData.subject,
           message: formData.message,
-          _subject: `New Portfolio Contact from ${formData.name}`,
-          _template: 'table',
-        }),
+          to_email: 'guravsujal371@gmail.com',
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+
+      toast.success('Message sent successfully! I\'ll get back to you soon.', {
+        duration: 5000,
+        style: {
+          background: 'rgb(var(--color-primary))',
+          color: 'rgb(var(--color-text-primary))',
+          border: '1px solid rgb(var(--color-accent))',
+          borderRadius: '12px',
+          padding: '16px',
+          fontSize: '14px',
+        },
+        iconTheme: { primary: 'rgb(var(--color-accent))', secondary: 'rgb(var(--color-primary))' },
       });
 
-      if (response.ok) {
-        setIsSuccess(true);
-        setSubmitted(true);
-        toast.success('Message sent successfully! I will get back to you soon.');
-        setTimeout(() => {
-          setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-          setSubmitted(false);
-          setIsSuccess(false);
-        }, 3000);
-      } else {
-        throw new Error('Submission failed');
-      }
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
     } catch (error) {
-      console.error('Form submission error:', error);
-      toast.error('Failed to send message. Please try again later.');
+      console.error('EmailJS error:', error);
+      toast.error('Failed to send message. Please try again or email me directly.', {
+        duration: 6000,
+        style: {
+          background: 'rgb(var(--color-primary))',
+          color: 'rgb(var(--color-text-primary))',
+          border: '1px solid #ef4444',
+          borderRadius: '12px',
+          padding: '16px',
+          fontSize: '14px',
+        },
+      });
     } finally {
-      setIsSending(false);
+      setIsLoading(false);
     }
   };
 
@@ -189,6 +189,7 @@ const Contact: React.FC = () => {
 
   return (
     <section className="min-h-screen bg-secondary py-20 px-4" id="contact">
+      <Toaster position="top-right" />
       <div className="container mx-auto max-w-5xl">
         <motion.h2
           className="section-title mb-12"
@@ -336,6 +337,30 @@ const Contact: React.FC = () => {
               )}
             </div>
 
+            {/* Subject */}
+            <div>
+              <label htmlFor="subject" className="block text-sm font-semibold mb-2 text-textPrimary">
+                Subject
+              </label>
+              <motion.input
+                type="text"
+                id="subject"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className={`w-full bg-secondary border rounded-lg px-4 py-3 text-textPrimary placeholder-textSecondary transition-all focus:outline-none focus:ring-1 ${errors.subject ? 'border-red-500 focus:ring-red-500' : 'border-border focus:border-accent focus:ring-accent'
+                  }`}
+                placeholder="What's this about?"
+                whileFocus={{ scale: 1.02 }}
+              />
+              {errors.subject && (
+                <motion.div className="flex items-center gap-2 mt-2 text-red-500" initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }}>
+                  <FiAlertCircle size={16} />
+                  <span className="text-sm">{errors.subject}</span>
+                </motion.div>
+              )}
+            </div>
+
             {/* Message */}
             <div>
               <label htmlFor="message" className="block text-sm font-semibold mb-2 text-textPrimary">
@@ -363,19 +388,20 @@ const Contact: React.FC = () => {
             {/* Submit Button */}
             <motion.button
               type="submit"
-              disabled={isSending || submitted}
-              className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-75"
-              whileHover={{ scale: isSending || submitted ? 1 : 1.05 }}
+              disabled={isLoading}
+              className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-not-allowed"
+              whileHover={{ scale: isLoading ? 1 : 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {isSuccess ? (
+              {isLoading ? (
                 <>
-                  <FiCheckCircle />
-                  Message Sent Successfully!
-                </>
-              ) : isSending ? (
-                <>
-                  <FiLoader className="animate-spin" />
+                  <motion.span
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                    style={{ display: 'inline-block' }}
+                  >
+                    <FiLoader />
+                  </motion.span>
                   Sending...
                 </>
               ) : (
