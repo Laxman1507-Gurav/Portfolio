@@ -81,7 +81,7 @@ const About: React.FC<AboutProps> = ({ onReviewCv }) => {
 
                         <div className="flex flex-col sm:flex-row items-center gap-4">
                             <motion.a
-                                href="/MYResume.pdf"
+                                href="/laxman_gurav_resume.pdf"
                                 download="Laxman_Gurav_Resume.pdf"
                                 onClick={onReviewCv}
                                 className="btn-primary inline-flex items-center gap-2"

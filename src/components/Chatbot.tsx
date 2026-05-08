@@ -170,7 +170,7 @@ const knowledge: { keywords: string[]; response: string }[] = [
   },
   {
     keywords: ['resume', 'cv', 'download resume', 'download cv', 'show resume', 'show cv'],
-    response: "📄 You can download Laxman's resume here: [Download Resume](/MYResume.pdf). You can also review it in the Experience section of the portfolio.",
+    response: "📄 You can download Laxman's resume here: [Download Resume](/laxman_gurav_resume.pdf). You can also review it in the Experience section of the portfolio.",
   },
   {
     keywords: ['thank', 'thanks', 'appreciate', 'great', 'awesome', 'helpful'],
