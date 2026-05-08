@@ -9,6 +9,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
+import { Toaster } from 'react-hot-toast';
 import './index.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-primary">
+      <Toaster position="bottom-right" />
       <Navbar />
       <Hero />
       <About onReviewCv={handleReviewCv} />

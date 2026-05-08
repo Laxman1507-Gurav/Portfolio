@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiMail, FiPhone, FiMapPin, FiSend, FiAlertCircle, FiCheckCircle } from 'react-icons/fi';
+import { FiMail, FiPhone, FiMapPin, FiSend, FiAlertCircle, FiCheckCircle, FiLoader } from 'react-icons/fi';
 import { FaLinkedin, FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa';
-
+import toast from 'react-hot-toast';
 interface FormData {
   name: string;
   email: string;
@@ -30,6 +30,7 @@ const Contact: React.FC = () => {
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   // Email validation function
   const validateEmail = (email: string): boolean => {
@@ -39,8 +40,12 @@ const Contact: React.FC = () => {
 
   // Phone validation function (Indian phone number format)
   const validatePhone = (phone: string): boolean => {
+    if (!phone.trim()) return true; // phone is optional
+    const digits = phone.replace(/\D/g, '');
+    // Accept 10-digit number, or 12-digit with 91 country code
+    const num = digits.length === 12 && digits.startsWith('91') ? digits.slice(2) : digits;
     const phoneRegex = /^[6-9]\d{9}$/;
-    return phoneRegex.test(phone.replace(/\D/g, ''));
+    return phoneRegex.test(num);
   };
 
   // Validate form
@@ -57,9 +62,7 @@ const Contact: React.FC = () => {
       newErrors.email = 'Please enter a valid email address';
     }
 
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required';
-    } else if (!validatePhone(formData.phone)) {
+    if (formData.phone.trim() && !validatePhone(formData.phone)) {
       newErrors.phone = 'Please enter a valid 10-digit Indian phone number';
     }
 
@@ -90,21 +93,51 @@ const Contact: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validateForm()) {
       return;
     }
 
-    // Handle form submission here
-    setSubmitted(true);
-    setIsSuccess(true);
-    setTimeout(() => {
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-      setSubmitted(false);
-      setIsSuccess(false);
-    }, 2000);
+    setIsSending(true);
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/guravsujal371@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          _subject: `New Portfolio Contact from ${formData.name}`,
+          _template: 'table',
+        }),
+      });
+
+      if (response.ok) {
+        setIsSuccess(true);
+        setSubmitted(true);
+        toast.success('Message sent successfully! I will get back to you soon.');
+        setTimeout(() => {
+          setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+          setSubmitted(false);
+          setIsSuccess(false);
+        }, 3000);
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast.error('Failed to send message. Please try again later.');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const containerVariants = {
@@ -330,9 +363,9 @@ const Contact: React.FC = () => {
             {/* Submit Button */}
             <motion.button
               type="submit"
-              disabled={submitted}
+              disabled={isSending || submitted}
               className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-75"
-              whileHover={{ scale: submitted ? 1 : 1.05 }}
+              whileHover={{ scale: isSending || submitted ? 1 : 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               {isSuccess ? (
@@ -340,8 +373,11 @@ const Contact: React.FC = () => {
                   <FiCheckCircle />
                   Message Sent Successfully!
                 </>
-              ) : submitted ? (
-                'Sending...'
+              ) : isSending ? (
+                <>
+                  <FiLoader className="animate-spin" />
+                  Sending...
+                </>
               ) : (
                 <>
                   <FiSend />
