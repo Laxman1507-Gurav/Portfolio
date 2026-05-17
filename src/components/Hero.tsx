@@ -95,7 +95,7 @@ const Hero: React.FC = () => {
                 >
                     <div className="relative w-full max-w-[460px] h-[330px] md:h-[80vh] rounded-[1rem] overflow-hidden border border-border shadow-2xl bg-secondary">
                         <img
-                            src="/sujal2.jpg"
+                            src="/laxman.jpg"
                             alt="Hero portrait"
                             className="h-full w-full object-cover"
                         />
