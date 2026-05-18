@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import toast, { Toaster } from 'react-hot-toast';
 import { FiMail, FiPhone, FiMapPin, FiSend, FiAlertCircle, FiLoader } from 'react-icons/fi';
-import { FaLinkedin, FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 // ─── EmailJS Configuration ─────────────────────────────────────────────────
 // Replace these three values after setting up your EmailJS account:
@@ -180,12 +179,6 @@ const Contact: React.FC = () => {
     },
   ];
 
-  const socialLinks = [
-    { icon: <FaLinkedin size={24} />, href: 'https://www.linkedin.com/in/laxman-gurav-4b9865404', label: 'LinkedIn', color: '#0A66C2', bg: '#E8F0FE' },
-    { icon: <FaGithub size={24} />, href: 'https://github.com/Laxman1507-Gurav', label: 'GitHub', color: '#171515', bg: '#F5F5F5' },
-    { icon: <FaInstagram size={24} />, href: 'https://www.instagram.com/sujal_g15?igsh=MWswM2x3Y3VweDZpeQ==', label: 'Instagram', color: '#E1306C', bg: '#FDE8EF' },
-    { icon: <FaWhatsapp size={24} />, href: 'https://wa.me/919322857455', label: 'WhatsApp', color: '#25D366', bg: '#E6FFED' },
-  ];
 
   return (
     <section className="min-h-screen bg-secondary py-20 px-4" id="contact">
@@ -236,27 +229,7 @@ const Contact: React.FC = () => {
                 </motion.a>
               ))}
             </div>
-            {/* Social Links */}
-            <div className="pt-6 border-t border-border">
-              <h4 className="text-textPrimary font-semibold mb-4">Connect with me</h4>
-              <div className="flex flex-wrap gap-4">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full flex items-center justify-center transition-all shadow-md hover:shadow-lg"
-                    style={{ backgroundColor: social.bg, color: social.color }}
-                    whileHover={{ y: -5, scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    aria-label={social.label}
-                  >
-                    {social.icon}
-                  </motion.a>
-                ))}
-              </div>
-            </div>
+            {/* Social links moved to Hero section */}
           </motion.div>
 
           {/* Contact Form */}

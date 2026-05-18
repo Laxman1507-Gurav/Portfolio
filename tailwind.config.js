@@ -17,8 +17,8 @@ export default {
         border: "rgb(var(--color-border) / <alpha-value>)",
       },
       fontFamily: {
-        sans: ['Poppins', 'system-ui', 'sans-serif'],
-        heading: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['"Goudy Old Style"', 'GoudyOldStyle', '"Century Gothic"', 'CenturyGothic', 'Poppins', 'system-ui', 'sans-serif'],
+        heading: ['"Goudy Old Style"', 'GoudyOldStyle', '"Century Gothic"', 'CenturyGothic', 'Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
         float: "float 6s ease-in-out infinite",

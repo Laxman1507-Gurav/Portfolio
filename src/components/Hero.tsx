@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
+import { FaLinkedin, FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 const Hero: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -23,6 +24,13 @@ const Hero: React.FC = () => {
             transition: { duration: 0.8 },
         },
     };
+
+    const socialLinks = [
+        { icon: <FaLinkedin />, href: 'https://www.linkedin.com/in/laxman-gurav-4b9865404', label: 'LinkedIn', color: '#0A66C2', bg: '#E8F0FE' },
+        { icon: <FaGithub />, href: 'https://github.com/Laxman1507-Gurav', label: 'GitHub', color: '#171515', bg: '#F5F5F5' },
+        { icon: <FaInstagram />, href: 'https://www.instagram.com/sujal_g15?igsh=MWswM2x3Y3VweDZpeQ==', label: 'Instagram', color: '#E1306C', bg: '#FDE8EF' },
+        { icon: <FaWhatsapp />, href: 'https://wa.me/919322857455', label: 'WhatsApp', color: '#25D366', bg: '#E6FFED' },
+    ];
 
     return (
         <section
@@ -83,6 +91,27 @@ const Hero: React.FC = () => {
                         >
                             My Works
                         </motion.a>
+                    </motion.div>
+
+                    <motion.div variants={itemVariants} className="mt-6">
+                        <h4 className="text-textPrimary font-semibold mb-4">Connect with me on</h4>
+                        <div className="flex items-center gap-3 sm:gap-4">
+                            {socialLinks.map((social, idx) => (
+                                <motion.a
+                                    key={idx}
+                                    href={social.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all shadow-md hover:shadow-lg text-lg sm:text-xl"
+                                    style={{ backgroundColor: social.bg, color: social.color }}
+                                    whileHover={{ y: -5, scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    aria-label={social.label}
+                                >
+                                    {social.icon}
+                                </motion.a>
+                            ))}
+                        </div>
                     </motion.div>
                 </motion.div>
 
