@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiX, FiExternalLink, FiGithub } from 'react-icons/fi';
+import { FiX, FiGithub } from 'react-icons/fi';
+import ScreenshotSlider from './ScreenshotSlider';
 
 interface Project {
   id: number;
   title: string;
   category: 'web-app' | 'cloud' | 'big-data' | 'testing';
   image: string;
+  screenshots?: string[];
   description: string;
   technologies: string[];
   link: string;
@@ -19,6 +21,15 @@ const projects: Project[] = [
     title: 'CarePlus',
     category: 'web-app',
     image: '/careplus.jpg',
+    screenshots: [
+      '/careplus1.png',
+      '/careplus2.png',
+      '/careplus3.png',
+      '/careplus4.png',
+      '/careplus5.png',
+      '/careplus6.png',
+      '/careplus7.png',
+    ],
     description: 'A MERN stack-based healthcare management system. The project focuses on improving patient care by providing features like appointment booking (for adults and children), user authentication, profile management, and efficient handling of medical records.Through this project, I strengthened my skills in MongoDB, Express.js, React, and Node.js, along with real-world problem-solving and full-stack development.',
     technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
     link: 'https://github.com/Laxman1507-Gurav/CarePlus',
@@ -30,6 +41,16 @@ const projects: Project[] = [
     title: 'PetCure',
     category: 'web-app',
     image: '/Paws.jpg',
+    screenshots: [
+      '/petcure1.png',
+      '/petcure2.png',
+      '/petcure3.png',
+      '/petcure4.png',
+      '/petcure5.png',
+      '/petcure6.png',
+      '/petcure7.png',
+      '/petcure8.png',
+    ],
     description: 'PetCure is a MERN stack-based animal healthcare and rescue platform designed to simplify pet care and improve accessibility to veterinary services. The application allows users to book appointments, find nearby veterinary clinics using map integration, upload and read blogs, and manage their pet care journey efficiently. This project helped me strengthen my skills in full-stack development, authentication using JWT, API integration, and building real-world scalable applications.',
     technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Leaflet', 'OpenStreetMap'],
     link: 'https://github.com/Laxman1507-Gurav/PetCure',
@@ -77,7 +98,16 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
           <div className="p-5 sm:p-8 overflow-y-auto custom-scrollbar">
             {/* Icon / Image */}
             {project.image.startsWith('http') || project.image.startsWith('/') || project.image.startsWith('.') || project.image.startsWith('data:') ? (
-              <img src={project.image} alt={project.title} className="w-full h-auto max-h-64 object-cover rounded-lg mb-4" />
+              <>
+                <img src={project.image} alt={project.title} className="w-full h-auto max-h-64 object-cover rounded-lg mb-4" />
+
+                {project.screenshots && project.screenshots.length > 0 && (
+                  <div className="mb-4">
+                    <h4 className="text-accent font-semibold mb-3">Screenshots</h4>
+                    <ScreenshotSlider images={project.screenshots} />
+                  </div>
+                )}
+              </>
             ) : (
               <div className="text-6xl mb-4 text-center text-textSecondary">{project.image}</div>
             )}
@@ -100,18 +130,8 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
               </div>
             </div>
 
-            {/* Links */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <motion.a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary inline-flex items-center justify-center gap-2 text-sm sm:text-base py-2.5 sm:py-3"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <FiExternalLink /> Visit Project
-              </motion.a>
+            {/* Links (only GitHub) */}
+            <div className="flex justify-center gap-3 mb-2">
               <motion.a
                 href={project.github}
                 target="_blank"
