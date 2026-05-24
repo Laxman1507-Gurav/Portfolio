@@ -75,8 +75,8 @@ const About: React.FC<AboutProps> = ({ onReviewCv }) => {
                             viewport={{ once: true }}
                             whileHover={{ y: -5 }}
                         >
-                            I am a BSc Computer Science graduate with a strong interest in software development and problem-solving. I have worked on many projects, where I developed leadership and technical skills under time constraints.
-                            Currently, I am looking to pursue MSc in Computer Science and grow as a full-stack developer
+                            I am a motivated Computer Science graduate with a strong passion for software development and building real-world applications. I enjoy solving complex problems through efficient and scalable solutions while continuously enhancing my technical skills to stay aligned with evolving industry trends. Currently pursuing a Master’s degree in Computer Science, I am focused on expanding my expertise in full-stack development and modern web technologies. I am actively seeking opportunities where I can contribute, learn, and grow as a Full Stack Developer, and I am open to internships and entry-level roles that provide valuable industry experience and professional growth.
+
                         </motion.p>
 
                         <div className="flex flex-col sm:flex-row items-center gap-4">

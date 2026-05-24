@@ -27,6 +27,14 @@ const timelineData: TimelineItem[] = [
     description: '',
     type: 'education',
   },
+  {
+    id: 3,
+    year: '2025-Present',
+    title: 'Master of Science(M.Sc) Computer Science',
+    company: 'Yashwantrao Mohite College of Arts, Science and Commerce, Kothrud, Pune.',
+    description: '',
+    type: 'education',
+  },
 ];
 
 const Experience: React.FC = () => {
