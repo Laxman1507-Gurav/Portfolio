@@ -16,10 +16,10 @@ export default {
         textSecondary: "rgb(var(--color-text-secondary) / <alpha-value>)",
         border: "rgb(var(--color-border) / <alpha-value>)",
       },
-      fontFamily: {
-        sans: ['"Century Gothic"', 'CenturyGothic', 'system-ui', 'sans-serif'],
-        heading: ['"Century Gothic"', 'CenturyGothic', 'system-ui', 'sans-serif'],
-      },
+     fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+      heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+    },
       animation: {
         float: "float 6s ease-in-out infinite",
         pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",

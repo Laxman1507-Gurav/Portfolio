@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { HiDownload } from 'react-icons/hi';
+import { FiMail, FiPhone, FiMapPin, FiUser, FiCalendar } from 'react-icons/fi';
+
 
 interface AboutProps {
     onReviewCv: () => void;
@@ -57,13 +59,34 @@ const About: React.FC<AboutProps> = ({ onReviewCv }) => {
                             whileHover={{ y: -5 }}
                         >
                             <h3 className="text-2xl font-bold text-accent mb-6">Personal Details</h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-textSecondary">
-                                <p><span className="text-accent font-semibold">Name:</span> Laxman Gurav</p>
-                                <p><span className="text-accent font-semibold">DOB:</span> July 15, 2004</p>
-                                <p><span className="text-accent font-semibold">Address:</span> Pune, Maharashtra</p>
-                                <p><span className="text-accent font-semibold">Email:</span> guravsujal371@gmail.com</p>
-                                <p className="md:col-span-2"><span className="text-accent font-semibold">Phone:</span> +91 9322857455</p>
-                            </div>
+                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-textSecondary">
+    
+    <div className="flex items-center gap-3">
+        <FiUser size={22} className="text-accent flex-shrink-0" />
+        <span>Laxman Gurav</span>
+    </div>
+
+    <div className="flex items-center gap-3">
+        <FiCalendar size={22} className="text-accent flex-shrink-0" />
+        <span>July 15, 2004</span>
+    </div>
+
+    <div className="flex items-center gap-3">
+        <FiMapPin size={22} className="text-accent flex-shrink-0" />
+        <span>Pune, Maharashtra</span>
+    </div>
+
+    <div className="flex items-center gap-3 break-all">
+        <FiMail size={22} className="text-accent flex-shrink-0" />
+        <span>guravsujal371@gmail.com</span>
+    </div>
+
+    <div className="flex items-center gap-3 md:col-span-2">
+        <FiPhone size={22} className="text-accent flex-shrink-0" />
+        <span>+91 9322857455</span>
+    </div>
+
+</div>
                         </motion.div>
 
                         {/* About Me Paragraph */}

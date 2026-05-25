@@ -7,7 +7,7 @@ interface TimelineItem {
   title: string;
   company: string;
   description: string;
-  type: 'experience' | 'education';
+  type: 'Experience' | 'Education';
 }
 
 const timelineData: TimelineItem[] = [
@@ -17,7 +17,7 @@ const timelineData: TimelineItem[] = [
     title: 'Full Stack Developer',
     company: 'Custard Apple Animations',
     description: 'Where I developed CarePlus, A MERN stack healthcare management system where patients can book appointments, doctors can manage them, and admins control the system. I worked on both frontend and backend, built APIs, and used MongoDB for data storage.',
-    type: 'experience',
+    type: 'Experience',
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const timelineData: TimelineItem[] = [
     title: 'Bachelor of Science(B.Sc) Computer Science',
     company: 'Yashwantrao Mohite College of Arts, Science and Commerce, Kothrud, Pune.',
     description: '',
-    type: 'education',
+    type: 'Education',
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const timelineData: TimelineItem[] = [
     title: 'Master of Science(M.Sc) Computer Science',
     company: 'Yashwantrao Mohite College of Arts, Science and Commerce, Kothrud, Pune.',
     description: '',
-    type: 'education',
+    type: 'Education',
   },
 ];
 
@@ -96,11 +96,11 @@ const Experience: React.FC = () => {
                   {/* Badge */}
                   <div className="flex items-center gap-2 mb-3">
                     <div className={`px-3 py-1 rounded-full text-sm font-semibold ${
-                      item.type === 'experience'
+                      item.type === 'Experience'
                         ? 'bg-accent/20 text-accent'
                         : 'bg-accentSecond/20 text-accentSecond'
                     }`}>
-                      {item.type === 'experience' ? '💼' : '🎓'} {item.type}
+                      {item.type === 'Experience' ? '💼' : '🎓'} {item.type}
                     </div>
                   </div>
 
