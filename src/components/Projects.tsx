@@ -57,6 +57,25 @@ const projects: Project[] = [
     github: 'https://github.com/Laxman1507-Gurav/PetCure',
 
   },
+  {
+    id: 3,
+    title: 'MailHub',
+    category: 'web-app',
+    image: '/Mailhub.jpg',
+    screenshots: [
+        '/mailhub1.png',
+        '/mailhub2.png',
+        '/mailhub3.png',
+        '/mailhub4.png',
+        '/mailhub5.png',
+        '/mailhub6.png',
+        '/mailhub7.png',
+    ],
+    description: 'MailHub is a modern SaaS-style Email Automation software developed using PHP, MySQL, Tailwind CSS, and JavaScript. The platform is designed to help organizations efficiently manage and automate business email communication through a clean, responsive, and professional admin dashboard.',
+    technologies: ['PHP', 'MySQL', 'Tailwind CSS', 'JavaScript'],
+    link: 'https://github.com/Laxman1507-Gurav/MailHub',
+    github: 'https://github.com/Laxman1507-Gurav/MailHub',
+  }
 ];
 
 const categories: { id: 'all' | 'web-app' | 'cloud' | 'big-data' | 'testing'; label: string }[] = [

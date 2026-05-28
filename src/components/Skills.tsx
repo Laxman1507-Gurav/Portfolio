@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import {
   SiHtml5, SiJavascript, SiReact, SiNodedotjs, SiMongodb,
   SiMysql, SiExpress,
+  SiPhp,
 } from 'react-icons/si';
 import {
   FaCode, FaCloud, FaBrain, FaLightbulb, FaProjectDiagram,
@@ -36,6 +37,9 @@ const skills: Skill[] = [
   { name: 'Node.js', icon: <SiNodedotjs size={28} />, level: 84, color: '#68a063', category: 'tools' },
   { name: 'Express.js', icon: <SiExpress size={26} />, level: 82, color: '#888888', category: 'tools' },
   { name: 'MongoDB', icon: <SiMongodb size={28} />, level: 83, color: '#4db33d', category: 'tools' },
+  {name: 'PHP', icon: <SiPhp size={28} />, level: 85, color: '#777bb4', category: 'tools'},
+  {name: 'MySQL', icon: <SiMysql size={28} />, level: 80, color: '#f59e0b', category: 'tools'},
+  {name:'Tailwind CSS', icon: <FaLeaf size={26} />, level: 80, color: '#38bdf8', category: 'tools'},
 
   // Interpersonal Skills
   { name: 'Communication', icon: <FaComments size={26} />, level: 92, color: '#06b6d4', category: 'interpersonal' },
