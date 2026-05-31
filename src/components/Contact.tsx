@@ -388,14 +388,6 @@ const Contact: React.FC = () => {
         </motion.div>
 
         {/* Map placeholder */}
-        <motion.div
-          className="mt-16 rounded-lg overflow-hidden border border-border shadow-lg"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-        </motion.div>
       </div>
     </section>
   );

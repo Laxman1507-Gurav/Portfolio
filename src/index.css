@@ -165,3 +165,14 @@
 .fade-in-up {
   animation: fade-in-up 0.6s ease-out;
 }
+section {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
