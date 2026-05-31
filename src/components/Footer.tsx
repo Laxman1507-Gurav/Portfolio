@@ -15,30 +15,6 @@ const Footer: React.FC = () => {
     { icon: <FaWhatsapp size={20} />, href: 'https://wa.me/919322857455', label: 'WhatsApp', color: '#25D366', bg: '#E6FFED' },
   ];
 
-  const footerLinks = [
-    { 
-      title: 'Navigation', 
-      links: [
-        { name: 'Home', href: '#home' },
-        { name: 'About', href: '#about' },
-        { name: 'Experience', href: '#experience' }
-      ] 
-    },
-    { 
-      title: 'Expertise', 
-      links: [
-        { name: 'Services', href: '#services' },
-        { name: 'Skills', href: '#skills' },
-        { name: 'Projects', href: '#projects' }
-      ] 
-    },
-    { 
-      title: 'Connect', 
-      links: [
-        { name: 'Contact', href: '#contact' }
-      ] 
-    },
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -63,7 +39,7 @@ const Footer: React.FC = () => {
     <footer className="bg-primary border-t border-border">
       <div className="container mx-auto px-4 py-16">
         <motion.div
-          className="grid md:grid-cols-5 gap-8 mb-12"
+          className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-12"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -77,24 +53,7 @@ const Footer: React.FC = () => {
             </p>
           </motion.div>
 
-          {/* Footer Links */}
-          {footerLinks.map((section, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <h4 className="font-semibold mb-4 text-textPrimary">{section.title}</h4>
-              <ul className="space-y-2">
-                {section.links.map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-textSecondary hover:text-accent transition-colors text-sm"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+
 
           {/* Social Links */}
           <div>

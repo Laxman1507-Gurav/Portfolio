@@ -29,7 +29,7 @@ const About: React.FC<AboutProps> = ({ onReviewCv }) => {
     };
 
     return (
-        <section className="min-h-screen bg-secondary py-20 px-4" id="about">
+        <section className="min-h-screen bg-transparent" id="about">
             <div className="container mx-auto">
                 <motion.h2
                     className="section-title mb-12"

@@ -1,14 +1,31 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  SiHtml5, SiJavascript, SiReact, SiNodedotjs, SiMongodb,
-  SiMysql, SiExpress,
-  SiPhp,
+  SiHtml5,
+  SiJavascript,
+  SiReact,
+  SiNodedotjs,
+  SiMongodb,
+  SiMysql,
+  SiExpress, SiPhp,
 } from 'react-icons/si';
+
 import {
-  FaCode, FaCloud, FaBrain, FaLightbulb, FaProjectDiagram,
-  FaUsers, FaComments, FaHandshake, FaStar, FaLeaf, FaJava, FaCss3Alt,
+  FaCode,
+  FaCloud,
+  FaBrain,
+  FaLightbulb,
+  FaProjectDiagram,
+  FaUsers,
+  FaComments,
+  FaHandshake,
+  FaStar,
+  FaLeaf,
+  FaJava,
+  FaCss3Alt,
 } from 'react-icons/fa';
+
 import { MdComputer } from 'react-icons/md';
 
 interface Skill {
@@ -37,9 +54,9 @@ const skills: Skill[] = [
   { name: 'Node.js', icon: <SiNodedotjs size={28} />, level: 84, color: '#68a063', category: 'tools' },
   { name: 'Express.js', icon: <SiExpress size={26} />, level: 82, color: '#888888', category: 'tools' },
   { name: 'MongoDB', icon: <SiMongodb size={28} />, level: 83, color: '#4db33d', category: 'tools' },
-  {name: 'PHP', icon: <SiPhp size={28} />, level: 85, color: '#777bb4', category: 'tools'},
-  {name: 'MySQL', icon: <SiMysql size={28} />, level: 80, color: '#f59e0b', category: 'tools'},
-  {name:'Tailwind CSS', icon: <FaLeaf size={26} />, level: 80, color: '#38bdf8', category: 'tools'},
+  { name: 'PHP', icon: <SiPhp size={28} />, level: 85, color: '#777bb4', category: 'tools' },
+  { name: 'MySQL', icon: <SiMysql size={28} />, level: 80, color: '#f59e0b', category: 'tools' },
+  { name: 'Tailwind CSS', icon: <FaLeaf size={26} />, level: 80, color: '#38bdf8', category: 'tools' },
 
   // Interpersonal Skills
   { name: 'Communication', icon: <FaComments size={26} />, level: 92, color: '#06b6d4', category: 'interpersonal' },
@@ -58,17 +75,13 @@ interface SkillCardProps {
 const SkillCard: React.FC<SkillCardProps> = ({ skill, index }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5, delay: index * 0.06 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: index * 0.05 }}
     whileHover={{ y: -6, scale: 1.04 }}
-    className="group bg-primary rounded-2xl p-5 border border-border shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-center gap-3 cursor-default"
+    className="group bg-primary rounded-2xl p-5 border border-border shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-center gap-3"
   >
-    {/* Icon circle */}
-    <motion.div
-      className="w-14 h-14 rounded-xl flex items-center justify-center bg-secondary border border-border shadow-sm"
-      whileHover={{ rotate: 8, scale: 1.1 }}
-      transition={{ duration: 0.3 }}
+    <div
+      className="w-14 h-14 rounded-xl flex items-center justify-center border"
       style={{
         color: skill.color,
         backgroundColor: `${skill.color}22`,
@@ -76,64 +89,44 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index }) => (
       }}
     >
       {skill.icon}
-    </motion.div>
+    </div>
 
-    {/* Skill name */}
-    <p className="text-sm font-semibold text-textPrimary text-center leading-tight transition-colors">
+    <p className="text-sm font-semibold text-textPrimary text-center">
       {skill.name}
     </p>
 
-    {/* Progress bar */}
     <div className="w-full bg-secondary rounded-full h-1.5 overflow-hidden">
       <motion.div
-        className="h-full rounded-full bg-accent"
+        className="h-full bg-accent rounded-full"
         initial={{ width: 0 }}
-        whileInView={{ width: `${skill.level}%` }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.2, ease: 'easeOut', delay: index * 0.06 + 0.3 }}
+        animate={{ width: `${skill.level}%` }}
+        transition={{ duration: 1 }}
       />
     </div>
 
-    {/* Percentage */}
-    <span className="text-xs font-bold text-textSecondary">{skill.level}%</span>
+    <span className="text-xs font-bold text-textSecondary">
+      {skill.level}%
+    </span>
   </motion.div>
 );
 
 const Skills: React.FC = () => {
-  const industrySkills = skills.filter(s => s.category === 'industry');
-  const toolsSkills = skills.filter(s => s.category === 'tools');
-  const interpersonalSkills = skills.filter(s => s.category === 'interpersonal');
+  const [activeTab, setActiveTab] = useState('industry');
 
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  };
+  const tabs = [
+    { id: 'industry', label: 'Industry Knowledge' },
+    { id: 'tools', label: 'Tools & Technology' },
+    { id: 'interpersonal', label: 'Interpersonal Skills' },
+  ];
 
-  const renderSection = (
-    title: string,
-    accentClass: string,
-    items: Skill[],
-    offset = 0
-  ) => (
-    <motion.div
-      variants={sectionVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      className="mb-16"
-    >
-      <h3 className={`text-2xl md:text-1xl font-bold mb-8 uppercase tracking-widest text-center ${accentClass}`}>{title}</h3>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
-        {items.map((skill, i) => (
-          <SkillCard key={skill.name} skill={skill} index={i + offset} />
-        ))}
-      </div>
-    </motion.div>
+  const activeSkills = skills.filter(
+    (skill) => skill.category === activeTab
   );
 
   return (
-    <section className="min-h-screen bg-primary pt-8 pb-20 px-4" id="skills">
+    <section className="min-h-screen bg-transparent" id="skills">
       <div className="container mx-auto max-w-6xl">
+
         <motion.h2
           className="section-title mb-16"
           initial={{ opacity: 0, y: -20 }}
@@ -144,12 +137,52 @@ const Skills: React.FC = () => {
           My <span className="text-accent">Skills</span>
         </motion.h2>
 
-        {renderSection('Industry Knowledge', 'text-accent', industrySkills, 0)}
-        {renderSection('Tools & Technology', 'text-accentSecond', toolsSkills, industrySkills.length)}
-        {renderSection('Interpersonal Skills', 'text-accent', interpersonalSkills, industrySkills.length + toolsSkills.length)}
+        {/* Tab Navigation */}
+
+        <div className="max-w-4xl mx-auto mb-14">
+          <div className="flex flex-wrap justify-center gap-2 bg-secondary border border-border rounded-2xl p-2">
+
+            {tabs.map((tab) => (
+              <motion.button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className={`px-5 py-3 rounded-xl font-medium transition-all duration-300
+        ${activeTab === tab.id
+                    ? 'bg-accent text-primary shadow-md'
+                    : 'text-textPrimary hover:bg-primary'
+                  }`}
+              >
+                {tab.label}
+              </motion.button>
+            ))}
+
+          </div>
+        </div>
+
+        {/* Skills Grid */}
+
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5"
+        >
+          {activeSkills.map((skill, index) => (
+            <SkillCard
+              key={skill.name}
+              skill={skill}
+              index={index}
+            />
+          ))}
+        </motion.div>
+
       </div>
     </section>
   );
 };
 
 export default Skills;
+

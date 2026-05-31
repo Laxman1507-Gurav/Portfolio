@@ -181,7 +181,7 @@ const Contact: React.FC = () => {
 
 
   return (
-    <section className="min-h-screen bg-secondary py-20 px-4" id="contact">
+    <section className="min-h-screen bg-transparent" id="contact">
       <Toaster position="top-right" />
       <div className="container mx-auto max-w-5xl">
         <motion.h2
@@ -395,13 +395,6 @@ const Contact: React.FC = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="w-full h-96 bg-primary flex items-center justify-center">
-            <div className="text-center">
-              <p className="text-4xl mb-4">📍</p>
-              <p className="text-textPrimary font-semibold">Pune, Maharashtra, India</p>
-              <p className="text-sm text-textSecondary mt-2">Map integration available upon request</p>
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>

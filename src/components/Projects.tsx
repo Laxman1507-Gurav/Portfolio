@@ -262,8 +262,7 @@ const Projects: React.FC = () => {
               >
                 <motion.div
                   onClick={() => setSelectedProject(project)}
-                  className="group relative bg-primary rounded-none overflow-hidden border border-border cursor-pointer h-72 flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl"
-                  whileHover={{ y: -5 }}
+className="group relative bg-primary rounded-3xl overflow-hidden border border-border cursor-pointer h-72 flex flex-col items-center justify-center transition-all duration-300 hover:shadow-2xl hover:border-accent/30"                  whileHover={{ y: -5 }}
                 >
                   {/* Minimal overlay */}
                   <div className="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-10 transition-opacity" />

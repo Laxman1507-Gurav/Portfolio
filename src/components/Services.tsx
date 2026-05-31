@@ -62,7 +62,7 @@ const Services: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen bg-secondary py-12 pb-8 px-4" id="services">
+    <section className="min-h-screen bg-transparent" id="services">
       <div className="container mx-auto">
         <motion.h2
           className="section-title mb-12"
