@@ -63,13 +63,13 @@ const projects: Project[] = [
     category: 'web-app',
     image: '/Mailhub.jpg',
     screenshots: [
-        '/mailhub1.png',
-        '/mailhub2.png',
-        '/mailhub3.png',
-        '/mailhub4.png',
-        '/mailhub5.png',
-        '/mailhub6.png',
-        '/mailhub7.png',
+      '/mailhub1.png',
+      '/mailhub2.png',
+      '/mailhub3.png',
+      '/mailhub4.png',
+      '/mailhub5.png',
+      '/mailhub6.png',
+      '/mailhub7.png',
     ],
     description: 'MailHub is a modern SaaS-style Email Automation software developed using PHP, MySQL, Tailwind CSS, and JavaScript. The platform is designed to help organizations efficiently manage and automate business email communication through a clean, responsive, and professional admin dashboard.',
     technologies: ['PHP', 'MySQL', 'Tailwind CSS', 'JavaScript'],
@@ -208,7 +208,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen bg-secondary py-20 px-4" id="projects">
+    <section className="relative py-20 bg-transparent" id="projects">
       <div className="container mx-auto">
         <motion.h2
           className="section-title mb-12"
@@ -262,7 +262,7 @@ const Projects: React.FC = () => {
               >
                 <motion.div
                   onClick={() => setSelectedProject(project)}
-className="group relative bg-primary rounded-3xl overflow-hidden border border-border cursor-pointer h-72 flex flex-col items-center justify-center transition-all duration-300 hover:shadow-2xl hover:border-accent/30"                  whileHover={{ y: -5 }}
+                  className="group relative bg-primary rounded-3xl overflow-hidden border border-border cursor-pointer h-72 flex flex-col items-center justify-center transition-all duration-300 hover:shadow-2xl hover:border-accent/30" whileHover={{ y: -5 }}
                 >
                   {/* Minimal overlay */}
                   <div className="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-10 transition-opacity" />

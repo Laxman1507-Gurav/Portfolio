@@ -181,7 +181,7 @@ const Contact: React.FC = () => {
 
 
   return (
-    <section className="min-h-screen bg-transparent" id="contact">
+    <section className="relative py-20 bg-transparent" id="contact">
       <Toaster position="top-right" />
       <div className="container mx-auto max-w-5xl">
         <motion.h2

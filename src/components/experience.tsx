@@ -58,7 +58,7 @@ const Experience: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen bg-transparent" id="experience">
+    <section className="relative py-20 bg-transparent" id="experience">
       <div className="container mx-auto max-w-4xl">
         <motion.h2
           className="section-title mb-12"

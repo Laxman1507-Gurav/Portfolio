@@ -124,7 +124,7 @@ const Skills: React.FC = () => {
   );
 
   return (
-    <section className="min-h-screen bg-transparent" id="skills">
+    <section className="relative py-20 bg-transparent" id="skills">
       <div className="container mx-auto max-w-6xl">
 
         <motion.h2
