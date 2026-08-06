@@ -63,7 +63,7 @@ const About: React.FC<AboutProps> = ({ onReviewCv }) => {
     
     <div className="flex items-center gap-3">
         <FiUser size={22} className="text-accent flex-shrink-0" />
-        <span>Laxman Gurav</span>
+        <span>Laxman Shantaram Gurav</span>
     </div>
 
     <div className="flex items-center gap-3">
