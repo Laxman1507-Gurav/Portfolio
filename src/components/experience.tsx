@@ -38,6 +38,14 @@ const experienceData: TimelineItem[] = [
     description: 'Where I developed CarePlus, A MERN stack healthcare management system where patients can book appointments, doctors can manage them, and admins control the system. I worked on both frontend and backend, built APIs, and used MongoDB for data storage.',
     type: 'Experience',
   },
+  {
+    id: 2,
+    year: 'May 2026 - Present',
+    title: 'Software Developer intern',
+    company: 'InfraNex Developers',
+    description: 'Currently working as a Software Developer intern at InfraNex Developers, where I am involved in developing and maintaining web applications, collaborating with cross-functional teams, and contributing to the overall software development lifecycle.',
+    type: 'Experience',
+  },
 ];
 
 const Experience: React.FC = () => {
