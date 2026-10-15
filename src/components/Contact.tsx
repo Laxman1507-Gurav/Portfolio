@@ -102,7 +102,7 @@ const Contact: React.FC = () => {
           phone: formData.phone,
           subject: formData.subject,
           message: formData.message,
-          to_email: 'guravsujal371@gmail.com',
+          to_email: 'mailtolaxman0601@gmail.com',
         },
         EMAILJS_PUBLIC_KEY
       );

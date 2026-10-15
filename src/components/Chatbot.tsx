@@ -30,7 +30,7 @@ const knowledge: { keywords: string[]; response: string }[] = [
   },
   {
     keywords: ['email', 'mail', 'contact', 'reach', 'message'],
-    response: "📧 You can email Laxman at **guravsujal371@gmail.com** or reach him via the Contact section on this portfolio.",
+    response: "📧 You can email Laxman at **mailtolaxman0601@gmail.com** or reach him via the Contact section on this portfolio.",
   },
   {
     keywords: ['phone', 'call', 'number', 'mobile'],
@@ -170,7 +170,7 @@ const knowledge: { keywords: string[]; response: string }[] = [
   },
   {
     keywords: ['resume', 'cv', 'download resume', 'download cv', 'show resume', 'show cv'],
-    response: "📄 You can download Laxman's resume here: [Download Resume](/Laxman_Gurav_Resume.pdf). You can also review it in the Experience section of the portfolio.",
+    response: "📄 You can download Laxman's resume here: [Download Resume](/laxman_gurav_resume.pdf). You can also review it in the Experience section of the portfolio.",
   },
   {
     keywords: ['thank', 'thanks', 'appreciate', 'great', 'awesome', 'helpful'],

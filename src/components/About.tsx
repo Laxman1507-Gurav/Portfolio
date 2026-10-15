@@ -78,7 +78,7 @@ const About: React.FC<AboutProps> = ({ onReviewCv }) => {
 
                                 <div className="flex items-center gap-3 break-all">
                                     <FiMail size={22} className="text-accent flex-shrink-0" />
-                                    <span>guravsujal371@gmail.com</span>
+                                    <span>mailtolaxman0601@gmail.com</span>
                                 </div>
 
                                 <div className="flex items-center gap-3 md:col-span-2">
@@ -104,7 +104,7 @@ const About: React.FC<AboutProps> = ({ onReviewCv }) => {
 
                         <div className="flex flex-col sm:flex-row items-center gap-4">
                             <motion.a
-                                href="/Laxman_Gurav_Resume.pdf"
+                                href="/laxman_gurav_resume.pdf"
                                 download="Laxman_Gurav_Resume.pdf"
                                 onClick={onReviewCv}
                                 className="btn-primary inline-flex items-center gap-2"
