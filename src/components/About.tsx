@@ -59,34 +59,34 @@ const About: React.FC<AboutProps> = ({ onReviewCv }) => {
                             whileHover={{ y: -5 }}
                         >
                             <h3 className="text-2xl font-bold text-accent mb-6">Personal Details</h3>
-                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-textSecondary">
-    
-    <div className="flex items-center gap-3">
-        <FiUser size={22} className="text-accent flex-shrink-0" />
-        <span>Laxman Shantaram Gurav</span>
-    </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-textSecondary">
 
-    <div className="flex items-center gap-3">
-        <FiCalendar size={22} className="text-accent flex-shrink-0" />
-        <span>July 15, 2004</span>
-    </div>
+                                <div className="flex items-center gap-3">
+                                    <FiUser size={22} className="text-accent flex-shrink-0" />
+                                    <span>Laxman Shantaram Gurav</span>
+                                </div>
 
-    <div className="flex items-center gap-3">
-        <FiMapPin size={22} className="text-accent flex-shrink-0" />
-        <span>Pune, Maharashtra</span>
-    </div>
+                                <div className="flex items-center gap-3">
+                                    <FiCalendar size={22} className="text-accent flex-shrink-0" />
+                                    <span>July 15, 2004</span>
+                                </div>
 
-    <div className="flex items-center gap-3 break-all">
-        <FiMail size={22} className="text-accent flex-shrink-0" />
-        <span>guravsujal371@gmail.com</span>
-    </div>
+                                <div className="flex items-center gap-3">
+                                    <FiMapPin size={22} className="text-accent flex-shrink-0" />
+                                    <span>Pune, Maharashtra</span>
+                                </div>
 
-    <div className="flex items-center gap-3 md:col-span-2">
-        <FiPhone size={22} className="text-accent flex-shrink-0" />
-        <span>+91 9322857455</span>
-    </div>
+                                <div className="flex items-center gap-3 break-all">
+                                    <FiMail size={22} className="text-accent flex-shrink-0" />
+                                    <span>guravsujal371@gmail.com</span>
+                                </div>
 
-</div>
+                                <div className="flex items-center gap-3 md:col-span-2">
+                                    <FiPhone size={22} className="text-accent flex-shrink-0" />
+                                    <span>+91 9322857455</span>
+                                </div>
+
+                            </div>
                         </motion.div>
 
                         {/* About Me Paragraph */}
@@ -104,7 +104,7 @@ const About: React.FC<AboutProps> = ({ onReviewCv }) => {
 
                         <div className="flex flex-col sm:flex-row items-center gap-4">
                             <motion.a
-                                href="/laxman_gurav_resume.pdf"
+                                href="/Laxman_Gurav_Resume.pdf"
                                 download="Laxman_Gurav_Resume.pdf"
                                 onClick={onReviewCv}
                                 className="btn-primary inline-flex items-center gap-2"

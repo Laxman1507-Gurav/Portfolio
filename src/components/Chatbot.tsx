@@ -170,7 +170,7 @@ const knowledge: { keywords: string[]; response: string }[] = [
   },
   {
     keywords: ['resume', 'cv', 'download resume', 'download cv', 'show resume', 'show cv'],
-    response: "📄 You can download Laxman's resume here: [Download Resume](/laxman_gurav_resume.pdf). You can also review it in the Experience section of the portfolio.",
+    response: "📄 You can download Laxman's resume here: [Download Resume](/Laxman_Gurav_Resume.pdf). You can also review it in the Experience section of the portfolio.",
   },
   {
     keywords: ['thank', 'thanks', 'appreciate', 'great', 'awesome', 'helpful'],
@@ -276,7 +276,7 @@ const Chatbot: React.FC = () => {
         if (match.index > lastIndex) {
           elements.push(line.substring(lastIndex, match.index));
         }
-        
+
         const linkText = match[1];
         const linkUrl = match[2];
 
