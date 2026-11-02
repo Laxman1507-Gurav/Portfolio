@@ -162,8 +162,8 @@ const Contact: React.FC = () => {
     {
       icon: <FiMail size={24} />,
       title: 'Email',
-      content: 'guravsujal371@gmail.com',
-      href: 'mailto:guravsujal371@gmail.com',
+      content: 'mailtolaxman0601@gmail.com',
+      href: 'mailto:mailtolaxman0601@gmail.com',
     },
     {
       icon: <FiPhone size={24} />,
