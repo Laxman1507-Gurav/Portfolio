@@ -75,6 +75,43 @@ const projects: Project[] = [
     technologies: ['PHP', 'MySQL', 'Tailwind CSS', 'JavaScript'],
     link: 'https://github.com/Laxman1507-Gurav/MailHub',
     github: 'https://github.com/Laxman1507-Gurav/MailHub',
+  },
+  {
+    id: 4,
+    title: 'Lonavala Luxury Stay',
+    category: 'web-app',
+    image: '/lonavala.png',
+    screenshots: [
+      '/lonavala1.png',
+      '/lonavala2.png',
+      '/lonavala3.png',
+    ],
+    description: 'Lonavala Luxury Stay is an exclusive portfolio of bespoke properties and vacation rentals. Crafted with a premium hotel-style approach, Developed and deployed a responsive villa showcase website for a client, with property details, pricing, amenit galleries and a booking inquiry form.',
+
+    technologies: ['PHP', 'MySQL', 'Tailwind CSS', 'JavaScript'],
+    link: 'https://github.com/Laxman1507-Gurav/lonavala_stay',
+    github: 'https://github.com/Laxman1507-Gurav/lonavala_stay',
+  },
+  {
+    id: 5,
+    title: 'MyWardrobe',
+    category: 'web-app',
+    image: '/wardrobe.png',
+    screenshots: [
+      '/wardrobe0.png',
+      '/wardrobe1.png',
+      '/wardrobe2.png',
+      '/wardrobe3.png',
+      '/wardrobe4.png',
+      '/wardrobe5.png',
+      '/wardrobe6.png',
+      '/wardrobe7.png',
+      '/wardrobe8.png',
+    ],
+    description: 'Developed a full-stack digital wardrobe platform that allows users to organize clothing collections, manage categories and create personalized outfit combinations, Designed an interactive dashboard featuring wardrobe statistics, saved outfits, favourites and laundry tracking.',
+    technologies: ['React.js', 'Java', 'Spring Boot', 'MySQL'],
+    link: 'https://github.com/Laxman1507-Gurav/MyWardrobe',
+    github: 'https://github.com/Laxman1507-Gurav/MyWardrobe',
   }
 ];
 

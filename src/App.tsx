@@ -69,7 +69,7 @@ function App() {
 
             <div className="h-[80vh] min-h-[480px]">
               <iframe
-                src="/laxman_gurav_resume.pdf"
+                src="/Laxman_Gurav_Resume.pdf"
                 title="Laxman Gurav Resume Preview"
                 className="w-full h-full"
               />

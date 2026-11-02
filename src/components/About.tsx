@@ -98,13 +98,13 @@ const About: React.FC<AboutProps> = ({ onReviewCv }) => {
                             viewport={{ once: true }}
                             whileHover={{ y: -5 }}
                         >
-                            I am a motivated Computer Science graduate with a strong passion for software development and building real-world applications. I enjoy solving complex problems through efficient and scalable solutions while continuously enhancing my technical skills to stay aligned with evolving industry trends. Currently pursuing a Master’s degree in Computer Science, I am focused on expanding my expertise in full-stack development and modern web technologies. I am actively seeking opportunities where I can contribute, learn, and grow as a Full Stack Developer, and I am open to internships and entry-level roles that provide valuable industry experience and professional growth.
+                            I am a motivated Computer Science graduate with a strong passion for web development and building real-world applications. I enjoy solving complex problems through efficient and scalable solutions while continuously enhancing my technical skills to stay aligned with evolving industry trends. Currently pursuing a Master’s degree in Computer Science, I am focused on expanding my expertise in full-stack development and modern web technologies. I am actively seeking opportunities where I can contribute, learn, and grow as a Full Stack Developer, and I am open to internships and entry-level roles that provide valuable industry experience and professional growth.
 
                         </motion.p>
 
                         <div className="flex flex-col sm:flex-row items-center gap-4">
                             <motion.a
-                                href="/laxman_gurav_resume.pdf"
+                                href="/Laxman_Gurav_Resume.pdf"
                                 download="Laxman_Gurav_Resume.pdf"
                                 onClick={onReviewCv}
                                 className="btn-primary inline-flex items-center gap-2"
