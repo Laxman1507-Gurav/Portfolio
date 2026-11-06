@@ -1,6 +1,6 @@
 # Modern Professional Portfolio Website
 
-A stunning, fully-responsive portfolio website built for a Fullstack Web Developer with smooth animations, interactive components, and a modern dark theme design.
+A stunning, fully-responsive portfolio website built for a Full Stack Developer with smooth animations, interactive components, and a modern dark theme design.
 
 ## 🌟 Features
 

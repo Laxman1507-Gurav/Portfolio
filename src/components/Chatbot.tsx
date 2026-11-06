@@ -18,7 +18,7 @@ const knowledge: { keywords: string[]; response: string }[] = [
   },
   {
     keywords: ['tell me about laxman'],
-    response: "His full name is **Laxman Shantaram Gurav**. He is a passionate about learning new things,building real-world web applications using modern technologies Fullstack Web Developer & creative problem solver based in Pune, Maharashtra, India.",
+    response: "His full name is **Laxman Shantaram Gurav**. He is a passionate Full Stack Developer & creative problem solver based in Pune, Maharashtra, India, dedicated to learning new things and building real-world web applications using modern technologies.",
   },
   {
     keywords: ['tell me more about laxman', 'who is laxman', 'more', 'about laxman'],
@@ -90,7 +90,7 @@ const knowledge: { keywords: string[]; response: string }[] = [
   },
   {
     keywords: ['experience', 'years', 'background'],
-    response: "📋 Laxman is a passionate BSc Computer Science graduate with a strong background in software development and problem-solving. He has worked on multiple projects, developing leadership and technical skills under real-world conditions.",
+    response: "📋 Laxman is a passionate BSc Computer Science graduate with a strong background in full stack development and problem-solving. He has worked on multiple projects, developing leadership and technical skills under real-world conditions.",
   },
   {
     keywords: ['msc', 'masters', 'future', 'plan', 'goal'],
@@ -170,7 +170,7 @@ const knowledge: { keywords: string[]; response: string }[] = [
   },
   {
     keywords: ['resume', 'cv', 'download resume', 'download cv', 'show resume', 'show cv'],
-    response: "📄 You can download Laxman's resume here: [Download Resume](/laxman_gurav_resume.pdf). You can also review it in the Experience section of the portfolio.",
+    response: "📄 You can download Laxman's resume here: [Download Resume](/Laxman_Gurav_Resume.pdf). You can also review it in the Experience section of the portfolio.",
   },
   {
     keywords: ['thank', 'thanks', 'appreciate', 'great', 'awesome', 'helpful'],
