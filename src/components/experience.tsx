@@ -43,7 +43,7 @@ const experienceData: TimelineItem[] = [
     year: 'May 2026 - Nov 2026',
     title: 'Software Developer intern',
     company: 'InfraNex Developers',
-    description: 'Currently working as a Software Developer intern at InfraNex Developers, where I am involved in developing and maintaining web applications, collaborating with cross-functional teams, and contributing to the overall software development lifecycle.',
+    description: 'Successfully completed a Software Developer Internship at InfraNex Developers, gaining hands-on experience in developing and maintaining web applications, collaborating with cross-functional teams, and contributing to various stages of the software development lifecycle.',
     type: 'Experience',
   },
 ];
